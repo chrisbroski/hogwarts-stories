@@ -126,6 +126,7 @@ function loadCf(cf) {
             hr = document.createElement("hr");
             document.querySelector("main").append(hr);
         }
+        document.querySelector("article section fieldset").scrollIntoView();
     });
 }
 
