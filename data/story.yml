@@ -1,0 +1,50 @@
+---
+chapters:
+- title: The Letter
+  file: 1.md
+- title: Data Test
+  file: test.md
+- title: Written Test
+  file: written.md
+
+atts:
+- MP
+- PS
+- IQ
+- WA
+- ME
+- PC
+- IS
+- WD
+- MR
+- PA
+- IL
+- WS
+
+sunSigns:
+- Aries
+- Taurus
+- Gemini
+- Cancer
+- Leo
+- Virgo
+- Libra
+- Scorpio
+- Sagittarius
+- Capricorn
+- Aquarius
+- Pisces
+
+monthNames:
+- January
+- February
+- March
+- April
+- May
+- June
+- July
+- August
+- September
+- October
+- November
+- December

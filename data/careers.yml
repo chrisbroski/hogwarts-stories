@@ -1,0 +1,80 @@
+careers:
+    wealthy:
+    - high-level ministry official
+    - importer of exotic magical items
+    - star quidditch player
+    - popular musician
+    - treasure hunter
+    - popular actor
+    - popular author
+
+    middle class:
+    - mid-level ministry official
+    - shop owner
+    - successful author
+    - robe designer
+    - healer
+    - emergency healer
+    - arithmancer
+    - curse breaker
+    - mediwizard
+    - potioneer
+    - metal charmer
+    - desk job at Gringotts
+
+    average:
+    - low-level ministry official
+    - quill maker
+    - caldron maker
+    - book binder
+    - broom maker
+    - chef
+    - herbologist
+    - photographer
+    - reporter
+    - dragon keeper
+    - Knight bus driver
+    - Knight bus conductor
+    - librarian
+    - dragonologist
+    - owlet trainer
+    - owl post office employee
+    - magizoologist
+    - auror
+    - quidditch referee
+    - quidditch player
+
+    struggling:
+    - amatuer actor
+    - cook
+    - waiter
+    - clerk
+    - groundskeeper
+    - amatuer photographer
+    - amatuer musician
+    - bartender
+    - amatuer author
+    - amatuer quidditch player
+    - amatuer herbologist
+    - amatuer dragonologist
+    - amatuer magizoologist
+
+    poor:
+    - unemployed wizard
+    - petty criminal
+    - disabled wizard
+    - street vendor
+    - junk collector
+    - street cleaner
+
+    feminized:
+        waiter: waitress
+        clerk: cashier
+        groundskeeper: maid
+        unemployed wizard: housewitch
+        disabled wizard: disabled witch
+        popular actor: popular actress
+        amatuer actor: amatuer actress
+        mediwizard: mediwitch
+        bartender: bar maid
+        petty criminal: housewitch

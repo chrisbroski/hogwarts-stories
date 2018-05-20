@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<title>Hogwarts: Student Stories</title>
+<link href="inc/main.css" rel="stylesheet">
+<style>
+
+</style>
+
+<body>
+
+<header>
+    <div><div></div><div></div><div></div></div>
+    <h2>
+        <span id="titleA">Hogwarts</span>
+        <span class="star">✶</span>
+        <span id="titleB">Student Stories</span>
+    </h2>
+</header>
+
+<article>
+
+<aside></aside>
+
+<section>
+
+<header></header>
+<main></main>
+<fieldset></fieldset>
+
+</section>
+
+</article>
+
+<script src="inc/new.js"></script>
+<script src="inc/main.js"></script>
+<script>
+var data, xhr = new XMLHttpRequest();
+xhr.open("GET", "data/data.json?" + Math.random());
+xhr.onload = function (e) {
+    data = JSON.parse(xhr.response);
+
+    if (!characterData()) {
+        createCharacter();
+    }
+
+    init();
+};
+xhr.send();
+</script>

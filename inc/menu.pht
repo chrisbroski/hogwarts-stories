@@ -1,0 +1,57 @@
+<div id="close-mobile-menu">X</div>
+
+<h3>Possessions</h3>
+<h5>Hands</h5>
+<div id="menuHolding"></div>
+<h5>Pouch <span id="purse">55ʛ 12ȿ 9ҟ</span></h5>
+
+<div id="menuInventory">
+<h5>pocket</h5>
+<p title="Chocolate Frog box"><span data-container="pocket [capacity: 3]" class="pseudoLink">Chocolate Frog box</span></p>
+<h5>Bag <span><a href="/inventory" data-container="bag [capacity: 20]">1/20 items</a></span></h5>
+<h5>Trunk <span><a href="/inventory" data-container="trunk [capacity: 100]">0/100 items</a></span></h5>
+</div>
+
+<p id="suppliesList">
+
+<h3 class="energy">Energy</h3>
+<div id="levels">
+<div id="magicEnergy" class="energyLevel"><div style="width: 50%"></div><div>Magic</div></div>
+<div id="restNeed" class="energyLevel"><div></div><div>Physical</div></div>
+<div id="sleepNeed" class="energyLevel"><div style="width: 90%"></div><div>Mental</div></div>
+<div id="foodNeed" class="energyLevel"><div style="width: 5%"></div><div>Caloric</div></div>
+</div>
+
+<h3>Spells</h3>
+
+<h3>Friends</h3>
+
+<h3>Characteristics</h3>
+<div id="attrs">
+<h5>Magic: <span id="attrM" class="magic"></span></h5>
+<p id="atMP"><span id="attrMP" class="magic"></span> Spell power</p>
+<p id="atME"><span id="attrME" class="magic"></span> Max energy</p>
+<p id="atMR"><span id="attrMR" class="magic"></span> Energy recovery</p>
+
+<h5>Intellect: <span id="attrI" class="intellect"></span></h5>
+<p id="atIS"><span id="attrIS" class="intellect"></span> Problem solving</p>
+<p id="atIL"><span id="attrIL" class="intellect"></span> Memorization</p>
+<p id="atIQ"><span id="attrIQ" class="intellect"></span> Reflexes</p>
+
+<h5>Will: <span id="attrW" class="will"></span></h5>
+<p id="atWS"><span id="attrWS" class="will"></span> Sympathy</p>
+<p id="atWD"><span id="attrWD" class="will"></span> Determination</p>
+<p id="atWA"><span id="attrWA" class="will"></span> Attention</p>
+
+<h5>Physique: <span id="attrP" class="physique"></span></h5>
+<p id="atPA"><span id="attrPA" class="physique"></span> Fitness</p>
+<p id="atPS"><span id="attrPS" class="physique"></span> Size</p>
+<p id="atPC"><span id="attrPC" class="physique"></span> Agility</p>
+</div>
+
+<h3>Chapters</h3>
+<div id="asideChapters"></div>
+
+<fieldset>
+<p><button type="button" id="new-character">Start a new character</button></p>
+</fieldset>

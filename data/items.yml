@@ -1,0 +1,20 @@
+---
+items:
+  liquorice wand:
+    actions:
+    - Eat
+    - Wave liquorice wand
+    desc: Not much use for casting spells, but perfect as a tasty treat.
+  Chocolate Frog box:
+    actions:
+    - Open box
+    desc: 70% finest croakoa.
+  chocolate frog:
+    actions:
+    - Eat
+  chocolate frog card:
+    desc: There's a picture of an old wizard on it.
+  Fizzing Whizzbees:
+    actions:
+    - Eat
+    use: You float a few inches off the ground.

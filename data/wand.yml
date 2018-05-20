@@ -1,0 +1,262 @@
+---
+wood:
+  acacia:
+    color: dark brown
+    particularTo: WA
+  alder:
+    color: light brown
+    particularTo: WA
+    celticMonth: 3
+  apple:
+    color: brown
+    particularTo: WS
+  ash:
+    color: brown
+    particularTo: WD
+    celticMonth: 2
+  aspen:
+    color: white
+    particularTo: WD
+  beech:
+    color: light brown
+    particularTo: WA
+  birch:
+    color: brown
+    particularTo: WS
+    celticMonth: 0
+  blackthorn:
+    color: dark brown
+    particularTo: WD
+  black walnut:
+    color: dark brown
+    particularTo: WD, WA
+  cedar:
+    color: reddish brown
+    particularTo: WA
+  cherry:
+    color: reddish brown
+    particularTo: WD
+  chestnut:
+    color: light brown
+    particularTo: WS
+  cypress:
+    color: light brown
+    particularTo: WD
+  dogwood:
+    color: reddish brown
+    particularTo: IS, IQ
+  ebony:
+    color: black
+    particularTo: WD
+  elder:
+    color: light yellowish brown
+    particularTo: MP
+    celticMonth: 12
+  elm:
+    color: light reddish brown
+    particularTo: WA, IQ
+  english oak:
+    color: medium olive brown
+    particularTo: WD, WS
+    celticMonth: 6
+  fir:
+    color: light reddish brown
+    particularTo: WD
+  hawthorn:
+    color: brown
+    particularTo: WS
+    celticMonth: 5
+  hazel:
+    color: brown
+    particularTo: WS
+    celticMonth: 8
+  holly:
+    color: white
+    particularTo: WD
+    celticMonth: 7
+  hornbeam:
+    color: light yellowish brown
+    particularTo: WS, IQ
+  larch:
+    color: brown
+    particularTo: WD
+  laurel:
+    color: brown
+    particularTo: WD
+  mahogany:
+    color: dark reddish brown
+    particularTo: WD
+  maple:
+    color: brown
+    particularTo: WD
+  pear:
+    color: light reddish brown
+    particularTo: WA, WS
+  pine:
+    color: light brown
+    particularTo: IS
+  poplar:
+    color: light yellowish brown
+    particularTo: WD
+  red oak:
+    color: brown
+    particularTo: IQ
+    celticMonth: 6
+  redwood:
+    color: dark brown
+    particularTo: WD, IS
+  rowan:
+    color: brown
+    particularTo: WA
+    celticMonth: 1
+  silver lime:
+    color: white
+    particularTo: WS
+  spruce:
+    color: white
+    particularTo: WD
+  sycamore:
+    color: light brown
+    particularTo: WD, IS
+  vine:
+    color: brown
+    particularTo: WD, IQ
+    celticMonth: 9
+  walnut:
+    color: dark brown
+    particularTo: IS
+  willow:
+    color: brown
+    particularTo: WS
+    celticMonth: 4
+  yew:
+    color: brown
+    particularTo: WD
+cursorColor:
+  brown: brown
+  dark brown: darkbrown
+  light brown: lightbrown
+  black: black
+  white: white
+  light reddish brown: lightredbrown
+  light yellowish brown: lightbrown
+  reddish brown: redbrown
+  dark reddish brown: darkredbrown
+  medium olive brown: brown
+woods:
+- Acacia
+- Acacia
+- Alder
+- Alder
+- Alder
+- Apple
+- Apple
+- Ash
+- Ash
+- Ash
+- Aspen
+- Aspen
+- Aspen
+- Beech
+- Beech
+- Beech
+- Birch
+- Birch
+- Blackthorn
+- Blackthorn
+- Blackthorn
+- Black Walnut
+- Black Walnut
+- Cedar
+- Cedar
+- Cedar
+- Cherry
+- Chestnut
+- Chestnut
+- Chestnut
+- Cypress
+- Cypress
+- Dogwood
+- Dogwood
+- Dogwood
+- Ebony
+- Ebony
+- Ebony
+- Elder
+- Elm
+- Elm
+- Elm
+- English Oak
+- English Oak
+- English Oak
+- Fir
+- Fir
+- Fir
+- Hawthorn
+- Hawthorn
+- Hawthorn
+- Hazel
+- Hazel
+- Hazel
+- Holly
+- Holly
+- Hornbeam
+- Hornbeam
+- Hornbeam
+- Larch
+- Larch
+- Larch
+- Laurel
+- Laurel
+- Laurel
+- Mahogany
+- Maple
+- Maple
+- Maple
+- Pear
+- Pear
+- Pear
+- Pine
+- Pine
+- Pine
+- Poplar
+- Poplar
+- Poplar
+- Red Oak
+- Red Oak
+- Red Oak
+- Redwood
+- Redwood
+- Rowan
+- Rowan
+- Rowan
+- Silver Lime
+- Silver Lime
+- Silver Lime
+- Spruce
+- Spruce
+- Sycamore
+- Sycamore
+- Vine
+- Vine
+- Walnut
+- Walnut
+- Walnut
+- Willow
+- Willow
+- Yew
+- Yew
+flexibility:
+- Brittle
+- Stiff
+- Quite rigid
+- Unyielding
+- Slightly bendy
+- Nice and supple
+- Pliable
+- Bendy
+- Flexible
+- Rather bendy
+- Reasonably springy
+- Swishy
+- Whippy

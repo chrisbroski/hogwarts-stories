@@ -1,0 +1,160 @@
+---
+frogCards:
+- name: Alberic Grunnion
+  desc: Invented the Dungbomb.
+- name: Alberta Toothill (1391–1483)
+  desc: Winner of the all England Wizarding Dueling competition of 1430. Famously
+    overcame the favourite, Samson Wiblin, with a blasting curse.
+- name: Albus Dumbledore (1881-1997)
+  desc: Considered by many the greatest wizard of modern times, Dumbledore is particularly
+    famous for his defeat of the Dark Wizard Grindelwald in 1945, for the discovery
+    of the twelve uses of dragon's blood, and his work on alchemy with his partner,
+    Nicolas Flamel. Prof. Dumbledore enjoys chamber music and ten-pin bowling.
+- name: Andros the Invincible
+  desc: Alleged to have been the only known wizard to produce a Patronus the size
+    of a giant.
+- name: Archibald Alderton
+  desc: Famous for blowing up a hamlet of Little Dropping, Hampshire while trying
+    to magically mix a birthday cake.
+- name: Armando Dippet
+  desc: Headmaster of Hogwarts, circa 1940s.
+- name: Babayaga
+  desc: Medieval Russian Hag who regularly ate children for breakfast, and presumably
+    lunch and dinner.
+- name: Beatrix Bloxam
+  desc: Beatrix Bloxam was the author of the Toadstool Tales, a series of children’s
+    books since banned because they have been found to cause nausea and vomiting.
+- name: Beaumont Marjoribanks
+  desc: Discovered Gillyweed.
+- name: Bertie Bott (1935–present)
+  desc: Inventor of Bertie Bott's Every Flavour Beans.
+- name: Bowman Wright
+  desc: Inventor of the Golden Snitch.
+- name: Bridget Wenlock (1202–1285)
+  desc: Famous Arithmancer. First to establish the magical properties of the number 7.
+- name: Chauncey Oldridge (1342–1379)
+  desc: First known victim of Dragon pox.
+- name: Circe
+  desc: Greek witch who lived in Aeaea and turned lost sailors into pigs.
+- name: Cliodna
+  desc: Irish druidess who first discovered the properties of Moondew.
+- name: Cornelius Agrippa (1486–1535)
+  desc: A German mystic and alchemist.
+- name: Cyprian Youdle (1312–1357)
+  desc: Only Quidditch referee to die during a Quidditch match.
+- name: Dymphna Furmage (1612—1698)
+  desc: A witch who got famously abducted by pixies.
+- name: Dzou Yen (4th century B.C)
+  desc: Chinese alchemist.
+- name: Ethelred the Ever-Ready
+  desc: Famous for taking offence at nothing and cursing innocent bystanders. Died
+    in jail.
+- name: Falco Aesalon
+  desc: The first recorded Animagus. He was able to turn himself into a Falcon.
+- name: Felix Summerbee (1447-1508)
+  desc: Inventor of Cheering Charms.
+- name: Fulbert the Fearful
+  desc: Famous for being so cowardly to even leave his own house. Died when a defensive
+    charm backfired and his roof caved in.
+- name: Gifford Ollerton (1390–1441)
+  desc: Famous Giant slayer, killed the giant Hengist of Upper Barnton.
+- name: Godric Gryffindor
+  desc: Co-founder of Hogwarts. Gave his name to one of the four houses.
+- name: Gondoline Oliphant
+  desc: Famous for studying trolls.
+- name: Gregory the Smarmy
+  desc: Famous originator of Gregory's Unctuous Unction.
+- name: Gringott
+  desc: The richest goblin ever and the founder of Gringotts Wizarding Bank.
+- name: Gwenog Jones
+  desc: Captain and Beater of the all-female national Quidditch team, the Holyhead
+    Harpies.
+- name: Harry Potter
+  desc: The first and only known wizard to survive the Killing Curse, earning the
+    title "The Boy Who Lived." Youngest Quidditch player in the last century after
+    gaining the spot of Seeker in the Gryffindor Quidditch Team in his first year
+    at Hogwarts in 1991. Also known for having found Salazar Slytherin's Chamber of
+    Secrets and defeating the monster within, which was a basilisk, in his second
+    year at Hogwarts. Only known Gryffindor student able to speak Parseltongue. Youngest
+    competitor of the Triwizard Tournament and winner of said Tournament at the age
+    of 14 in 1995. The last master of death for having gained true possession of all
+    three Deathly Hallows. Most famous for the defeat of the most dangerous dark wizard
+    of all time, Lord Voldemort, in 1998 and his work and revolutionisation of the
+    Ministry of Magic.
+- name: Heathcote Barbary
+  desc: Plays the Rhythm Guitar for the popular Wizarding band, The Weird Sisters.
+- name: Helga Hufflepuff
+  desc: Co-founder of Hogwarts, gave her name to one of the four houses.
+- name: Hengist of Woodcroft
+  desc: Founder of Hogsmeade Village.
+- name: Hermione Granger
+  desc: For aiding Harry Potter and Ron Weasley in their attempt to destroy the Horcruxes
+    and the subsequent defeat of Voldemort. Also, for eradicating pro-pureblood laws
+    at the Ministry of Magic and campaigning for the rights of non-human beings such
+    as house-elves. Usually given the title of "brightest witch of her age."
+- name: Herpo the Foul
+  desc: First known creator of the Basilisk and a Horcrux
+- name: Ignatia Wildsmith (1227–1320)
+  desc: Inventor of Floo Powder.
+- name: Indira Choudry
+  desc: Witch who played as a Beater for the English National Quidditch team.
+- name: Joscelind Wadcock
+  desc: Chaser for Puddlemore United Quidditch Team.
+- name: Laverne de Montmorency
+  desc: Witch who invented a large number of Love Potions.
+- name: Leopoldina Smethwyck
+  desc: First witch to referee a Quidditch match.
+- name: Merlin
+  desc: Famous for his role in the King Arthur Chronicles.
+- name: Merwyn the Malicious
+  desc: Credited for the invention of many unpleasant jinxes and hexes.
+- name: Mirabella Plunkett
+  desc: Famously fell in love with a man named Loch Lomond but her parents forbade
+    her to marry him. Eventually she transfigured herself into a haddock and was never
+    seen again.
+- name: Miranda Goshawk
+  desc: Author of The Standard Book of Spells series, and is the set of textbooks
+    used at Hogwarts.
+- name: Mopsus
+  desc: A Greek soothsayer who defeated the seer Calchas in a contest of their powers.
+- name: Morgan le Fay
+  desc: Morgan le Fay was the child of the Duke of Cornwall and Igraine. She was a
+    Dark witch, and very powerful.
+- name: Musidora Barkwith
+  desc: A famous musical composer, whose unfinished work is now banned since it contained
+    an exploding tuba, that blew the roof top off of the Town Hall in Ackerley.
+- name: Newt Scamander
+  desc: A famous wizarding author famed for his book, Fantastic Beasts and Where to
+    Find Them. He also served as Headmaster of Hogwarts School of Witchcraft and Wizardry.
+- name: Oswald Beamish
+  desc: A pioneer in Goblin rights.
+- name: Paracelsus (1493–?)
+  desc: Alchemical genius. Full name is Auroleus Phillipus Theophrastus Bombastus
+    von Hohenheim.
+- name: Ptolemy (85 AD–?)
+  desc: Was a Geographer and Astronomer.
+- name: Queen Maeve
+  desc: Witch who trained young sorcerers in Ireland prior to the establishment of
+    Hogwarts.
+- name: Ronald Weasley
+  desc: For aiding Harry Potter and Hermione Granger in destroying the Horcruxes and
+    subsequent defeat of Voldemort. Also for revolutionising the Ministry of Magic
+    along with Harry Potter and Hermione Granger.
+- name: Rowena Ravenclaw
+  desc: Co-founder of Hogwarts. Came up with the ever changing floor plan. Gave her
+    name to one of the four houses.
+- name: Salazar Slytherin
+  desc: Co-Founder of Hogwarts. Inventor and builder of the Chamber of Secrets. Gave
+    his name to one of the four houses. Was one of the first recorded Parselmouths,
+    an accomplished Legilimens, and a notorious champion of pureblood supremacy.
+- name: Uric the Oddball
+  desc: Known for being the weirdest wizard of the ages. This incredibly eccentric
+    wizard was known for wearing a jellyfish for a hat.
+- name: Wendelin the Weird
+  desc: Allegedly loved being burned at the stake so much that she allowed herself
+    to be captured over 47 times in various disguises.
+- name: Wilfred Elphick (1112–1199)
+  desc: First wizard to be gored by an African Erumpent
+- name: Xavier Rastrick (1750-1836?)
+  desc: Flamboyant wizard entertainer. He vanished unexpectedly while tapdancing to
+    a crowd of three-hundred people in Painswick and was never seen again.

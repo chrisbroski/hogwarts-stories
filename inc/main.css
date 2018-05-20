@@ -1,0 +1,312 @@
+@font-face {
+    font-family: "Henny Penny";
+    src: url("../img/fonts/HennyPenny-Regular.ttf") format("opentype");
+}
+@font-face {
+    font-family: "EB Garamond";
+    src: url("../img/fonts/EBGaramond-Regular.ttf") format("opentype");
+}
+@font-face {
+    font-family: "EB Garamond Italic";
+    src: url("../img/fonts/EBGaramond-Italic.ttf") format("opentype");
+}
+@font-face {
+    font-family: "EB Garamond Bold";
+    src: url("../img/fonts/EBGaramond-Bold.ttf") format("opentype");
+}
+@font-face {
+    font-family: "EB Garamond Bold Italic";
+    src: url("../img/fonts/EBGaramond-Bold.ttf") format("opentype");
+}
+
+* {
+    box-sizing: border-box;
+}
+html {
+    margin: 0; padding: 0;
+    font-family: 'EB Garamond', serif;
+    background: #666;
+    height: 100%;
+}
+body {
+    margin: 0 auto; padding: 0;
+    max-width: 800px;
+    height: 100%;
+}
+h1, h2, h3, h4, h5 {
+    font-family: 'Henny Penny', sans-serif;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+h5 {
+    margin: 16px;
+}
+p {
+    margin: 0;
+    letter-spacing: 0;
+    line-height: 1.4;
+    font-size: 20px;
+}
+em, i {
+    font-family: 'EB Garamond Italic';
+    font-style: normal;
+}
+strong, b {
+    font-family: 'EB Garamond Bold';
+    font-weight: normal;
+}
+em strong, strong em {
+    font-family: 'EB Garamond Bold Italic';
+    font-style: normal;
+    font-weight: normal;
+}
+a, a:visited, .pseudoLink {
+    color: royalblue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+fieldset {
+    padding: 10px 20px;
+    border: 0 none;
+}
+fieldset p {
+    margin: 10px 0;
+}
+button {
+    padding: 6px 12px;
+    font-family: 'EB Garamond';
+    font-size: 20px;
+    line-height: 1;
+    background: rgba(0, 0, 0, 0.05);
+    border: 0 none;
+    font-weight: normal;
+    box-shadow: 1px 1px 4px #000;
+}
+button:focus, select:focus, input:focus {
+    outline: 0 none;
+}
+p span.italic {
+    font-family: 'EB Garamond Italic';
+}
+p span.bold {
+    font-family: 'EB Garamond Bold';
+}
+html.slytherin {
+    background: darkgreen;
+}
+html.slytherin body > header {
+    color: lightgray;
+}
+html.gryffindor {
+    background: firebrick;
+}
+html.gryffindor body > header {
+    color: gold;
+}
+html.ravenclaw {
+    background: navy;
+}
+html.ravenclaw body > header {
+    color: goldenrod;
+}
+html.hufflepuff {
+    background: black;
+}
+html.hufflepuff body > header {
+    color: yellow;
+}
+body > header {
+    height: 30px;
+    overflow: hidden;
+    color: #fff;
+}
+body > header > div {
+    padding: 6px 2px;
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 25px;
+    width: 25px;
+}
+body > header > div > div {
+    margin: 2px;
+    height: 2px;
+    background: #fff;
+}
+body > header h2 {
+    margin: 0; padding: 3px 0 0;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 0.2em;
+}
+body > header h2 .star {
+    padding: 0 0.5em;
+}
+article {
+    margin: 0 0 -27px;
+    height: 100%;
+    overflow: auto;
+    box-shadow: 0 0 20px rgba(6, 6, 6, 0.9);
+    background: #FEF3C6 url(../img/parchment.jpg);
+}
+article > section {
+    padding: 16px 20px 140px 20px;
+    max-width: 520px;
+    height: 100%;
+    overflow: auto;
+    border-right: 1px solid rgba(147, 62, 0, 0.25);
+    box-shadow: 3px 0 12px rgba(147, 62, 0, 0.3),
+        inset -3px -3px 64px rgba(147, 62, 0, 0.3);
+}
+article h1 {
+    margin: 0 0 2em;
+    text-align: center;
+    letter-spacing: 0.3em;
+}
+article h4 {
+    margin: 0 0 1em;
+    letter-spacing: 1.2em;
+    text-align: center;
+    font-size: 14px;
+}
+article header h4::before {
+  content: "✴";
+}
+article header h4::after {
+  content: "✴";
+}
+article h4 abbr {
+    text-transform: lowercase;
+}
+article p {
+    text-align: justify;
+    text-indent: 1em;
+}
+article h1+p {
+    text-indent: 0;
+}
+article main p:first-child {
+    text-indent: 0;
+}
+article main p:first-child:first-letter {
+    font-family: 'Henny Penny', sans-serif;
+    font-size: 48px;
+    line-height: 0;
+    letter-spacing: 0.1em;
+}
+article hr {
+    font-size: 12px;
+    text-align: center;
+    border: 0 none;
+}
+
+article hr:after {
+  content: "✴  ✴  ✴";
+}
+aside {
+    margin: 0 0 -27px; padding: 20px 10px 140px 10px;
+    height: 100%;
+    overflow: auto;
+    width: 33.5%;
+    float: right;
+    clear: right;
+}
+aside h3 {
+    margin: 1.2em 0 0.3em;
+    font-size: 16px;
+    border-bottom: 1px solid #000;
+    line-height: 1.2;
+    letter-spacing: 0.15em;
+}
+#close-mobile-menu {
+    padding: 2px 10px;
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 27px;
+    text-align: right;
+}
+aside #close-mobile-menu+h3 {
+    margin-top: 0;
+}
+aside h3.energy {
+    border-bottom: 0 none;
+    margin-bottom: 0;
+}
+aside h5 {margin: 0; font-size: 13px; }
+aside h5 span {
+    font-family: 'EB Garamond';
+    padding-left: 4px;
+    font-size: 14px;
+    text-transform: none;
+    letter-spacing: 0.05em;
+}
+aside p {letter-spacing: 0.1em; font-size: 14px; margin: 0 0 0.3em 0; }
+/*aside p b {font-family: "Henny Penny", sans-serif; padding-right: 4px; }*/
+aside fieldset {
+    text-align: center;
+}
+aside #attrs p {
+    text-indent: 0;
+    margin: 0;
+    line-height: 1.2;
+}
+aside #attrs h5 {
+    margin: 0.5em 0 0;
+}
+aside #attrs span {
+    font-family: monospace;
+}
+
+span.magic {color: red; }
+span.intellect {color: green; }
+span.will {color: blue; }
+span.physique {color: brown; }
+
+#levels {
+    padding-bottom: 4px;
+}
+div.energyLevel {
+    margin: 0 0 4px 0;
+    height: 18px;
+    position: relative;
+    border: 1px solid #000;
+    font-size: 12px;
+}
+div.energyLevel div {
+    padding: 0 1%;
+    width: 100%; height: 16px;
+    position: absolute; left: 0;
+    text-align: center;
+    line-height: 16px;
+    font-size: 14px;
+}
+#magicEnergy div:first-child {background: rgba(0, 0, 255, 0.3); }
+#foodNeed div:first-child {background: rgba(255, 130, 0, 0.4); }
+#sleepNeed div:first-child {background: rgba(255, 255, 0, 0.4); }
+#restNeed div:first-child {background: rgba(0, 255, 0, 0.3); }
+
+#asideChapters p {
+    text-indent: 0;
+}
+
+/* Mobile layout */
+@media (max-width: 530px) {
+    body > header h2 {font-size: 12px; padding: 6px 24px 0; white-space: nowrap; }
+    body > header > div {display: block; }
+    aside {
+        padding-left: 10px;
+        display: none;
+        position: fixed;
+        width: auto;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: #FEF3C6;
+    }
+    section {
+        box-shadow: 0 0 0;
+        border-right: 0 none;
+    }
+    #close-mobile-menu {
+        display: block;
+    }
+}
