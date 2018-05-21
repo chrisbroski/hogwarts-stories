@@ -2,6 +2,8 @@
 chapters:
 - title: The Letter
   file: 1.md
+- title: Diagon Alley
+  file: 2.md
 - title: Data Test
   file: test.md
 - title: Written Test

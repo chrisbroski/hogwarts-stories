@@ -1,7 +1,8 @@
 /*jslint browser: true, sloppy: true, regexp: true */
 /*global console, data, createCharacter, characterData */
 
-var activeThing;
+var activeThing,
+    chapterData;
 
 function countHash(txt, symb) {
     var len = txt.length, trim = 6;
@@ -35,6 +36,7 @@ function cfdToData(md) {
         if (block.slice(0, 1) === '#') {
             hCount = countHash(block, '#');
             if (hCount === 1) {
+                // this can be better
                 data.title = block.slice(hCount + 1);
             } else if (hCount === 2) {
                 data.subtitle = block.slice(hCount + 1);
@@ -51,14 +53,15 @@ function cfdToData(md) {
     });
     return data;
 }
-function chaoticFix(filePath, callback) {
+function chaoticFix(filePath) {
     var xhr = new XMLHttpRequest();
     // get file with ajax
     xhr.open("GET", "/chapter/" + filePath + "?" + Math.random(), true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                callback(cfdToData(xhr.responseText));
+                chapterData = cfdToData(xhr.responseText);
+                displayCf(-1);
             } else if (xhr.status === 404) {
                 console.log('Not found: ' + xhr.responseURL);
             } else {
@@ -94,40 +97,63 @@ function cfReplace(template, me) {
     });
 }
 
-function titles(cf) {
+function titles() {
     var h4 = document.createElement("h4"),
         h1 = document.createElement("h1"),
         header = document.querySelector("section header");
 
-    h4.textContent = cf.title;
-    h1.textContent = cf.subtitle;
+    h4.textContent = chapterData.title;
+    h1.textContent = chapterData.subtitle;
 
     header.appendChild(h4);
     header.appendChild(h1);
 }
 
-function loadCf(cf) {
+function displayCf(section) {
     var my = characterData(),
-        sections = Object.keys(cf.section),
-        len = sections.length;
+        sections = Object.keys(chapterData.section),
+        len = sections.length,
+        interactive = document.querySelector("article section fieldset"),
+        button = document.createElement("button"),
+        theEnd,
+        chapterIndex = parseInt(localStorage.getItem("current-chapter"), 10);
 
-    clearPage();
-    titles(cf);
+    interactive.innerHTML = "";
+    if (section === -1) {
+        clearPage();
+        titles();
+        section = 0;
+    }
 
-    sections.forEach(function (sec, index) {
-        var hr;
-        cf.section[sec].forEach(function (pText) {
-            var p = document.createElement("p");
-            p.textContent = cfReplace(pText, {my: my});
-            document.querySelector("main").append(p);
-        });
-
-        if (len > 1 && index + 1 < len) {
-            hr = document.createElement("hr");
-            document.querySelector("main").append(hr);
-        }
-        document.querySelector("article section fieldset").scrollIntoView();
+    chapterData.section[sections[section]].forEach(function (pText) {
+        var p = document.createElement("p");
+        p.textContent = cfReplace(pText, {my: my});
+        document.querySelector("main").append(p);
     });
+
+    // if final section, button to next chapter
+    if (section + 1 >= sections.length) {
+        if (chapterIndex + 1 === data.story.chapters.length) {
+            theEnd = document.createElement("h2");
+            theEnd.textContent = "The End";
+            interactive.appendChild(theEnd);
+        } else {
+            button.textContent = "Next Chapter";
+            button.onclick = function () {
+                loadChapter(parseInt(localStorage.getItem("current-chapter"), 10) + 1);
+            };
+            interactive.appendChild(button);
+        }
+    } else {
+        button.textContent = sections[section + 1];
+        button.setAttribute("data-section-index", (section + 1).toString(10));
+        button.onclick = function () {
+            displayCf(this.getAttribute("data-section-index"));
+        };
+        interactive.appendChild(button);
+    }
+
+    document.querySelector("article section fieldset").scrollIntoView();
 }
 
 function ordinal(num) {
@@ -161,12 +187,18 @@ function displayAtt() {
     });
 }
 
-function loadChapter() {
-    var chapterFile = localStorage.getItem("current-chapter");
-    if (!chapterFile) {
-        chapterFile = data.story.chapters[0].file;
+function loadChapter(newIndex) {
+    var chapterIndex = localStorage.getItem("current-chapter"),
+        index = parseInt(chapterIndex, 10);
+
+    if (!index) {
+        chapterIndex = 0;
     }
-    chaoticFix(chapterFile, loadCf);
+    if (newIndex) {
+        chapterIndex = newIndex;
+    }
+    localStorage.setItem("current-chapter", chapterIndex);
+    chaoticFix(data.story.chapters[chapterIndex].file);
 }
 
 function events() {
@@ -185,7 +217,7 @@ function events() {
 }
 
 function setChapter() {
-    localStorage.setItem("current-chapter", this.getAttribute("data-file"));
+    localStorage.setItem("current-chapter", this.getAttribute("data-index"));
     loadChapter();
 }
 
@@ -196,11 +228,12 @@ function aside() {
     displayAtt();
     // chapters
     ch.innerHTML = "";
-    data.story.chapters.forEach(function (chapter) {
+    data.story.chapters.forEach(function (chapter, index) {
         var p = document.createElement("p");
         p.textContent = chapter.title;
         p.className = "pseudoLink";
         p.setAttribute("data-file", chapter.file);
+        p.setAttribute("data-index", index);
         p.onclick = setChapter;
         ch.appendChild(p);
     });
