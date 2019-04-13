@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<title>Hogwarts Stories : The Package from Home</title>
+
+<body>
+
+<article>
+
+<div>mean: <span id="mean"></span></div>
+<div>std: <span id="std"></span></div>
+
+<div>4: <span id="rslt4">0</span></div>
+<div>5: <span id="rslt5">0</span></div>
+<div>6: <span id="rslt6">0</span></div>
+<div>7: <span id="rslt7">0</span></div>
+<div>8: <span id="rslt8">0</span></div>
+<div>9: <span id="rslt9">0</span></div>
+<div>10: <span id="rslt10">0</span></div>
+<div>11: <span id="rslt11">0</span></div>
+<div>12: <span id="rslt12">0</span></div>
+<div>13: <span id="rslt13">0</span></div>
+<div>14: <span id="rslt14">0</span></div>
+<div>15: <span id="rslt15">0</span></div>
+<div>16: <span id="rslt16">0</span></div>
+<div>17: <span id="rslt17">0</span></div>
+<div>18: <span id="rslt18">0</span></div>
+<div>19: <span id="rslt19">0</span></div>
+<div>20: <span id="rslt20">0</span></div>
+<div>21: <span id="rslt21">0</span></div>
+<div>22: <span id="rslt22">0</span></div>
+<div>23: <span id="rslt23">0</span></div>
+<div>24: <span id="rslt24">0</span></div>
+<div>25: <span id="rslt25">0</span></div>
+<div>26: <span id="rslt26">0</span></div>
+<div>27: <span id="rslt27">0</span></div>
+<div>28: <span id="rslt28">0</span></div>
+<div>29: <span id="rslt29">0</span></div>
+<div>30: <span id="rslt30">0</span></div>
+<div>31: <span id="rslt31">0</span></div>
+<div>32: <span id="rslt32">0</span></div>
+<div>33: <span id="rslt33">0</span></div>
+<div>34: <span id="rslt34">0</span></div>
+<div>35: <span id="rslt35">0</span></div>
+<div>36: <span id="rslt36">0</span></div>
+<div>37: <span id="rslt37">0</span></div>
+<div>38: <span id="rslt38">0</span></div>
+<div>39: <span id="rslt39">0</span></div>
+<div>40: <span id="rslt40">0</span></div>
+<div>41: <span id="rslt41">0</span></div>
+<div>42: <span id="rslt42">0</span></div>
+<div>43: <span id="rslt43">0</span></div>
+<div>44: <span id="rslt44">0</span></div>
+<div>45: <span id="rslt45">0</span></div>
+<div>46: <span id="rslt46">0</span></div>
+<div>47: <span id="rslt47">0</span></div>
+<div>48: <span id="rslt48">0</span></div>
+<div>49: <span id="rslt49">0</span></div>
+<div>50: <span id="rslt50">0</span></div>
+<div>51: <span id="rslt51">0</span></div>
+<div>52: <span id="rslt52">0</span></div>
+<div>53: <span id="rslt53">0</span></div>
+<div>54: <span id="rslt54">0</span></div>
+<div>55: <span id="rslt55">0</span></div>
+<div>56: <span id="rslt56">0</span></div>
+<div>57: <span id="rslt57">0</span></div>
+<div>58: <span id="rslt58">0</span></div>
+<div>59: <span id="rslt59">0</span></div>
+<div>60: <span id="rslt60">0</span></div>
+<div>61: <span id="rslt61">0</span></div>
+<div>62: <span id="rslt62">0</span></div>
+<div>63: <span id="rslt63">0</span></div>
+<div>64: <span id="rslt64">0</span></div>
+<div>65: <span id="rslt65">0</span></div>
+<div>66: <span id="rslt66">0</span></div>
+<div>67: <span id="rslt67">0</span></div>
+<div>68: <span id="rslt68">0</span></div>
+<div>69: <span id="rslt69">0</span></div>
+<div>70: <span id="rslt70">0</span></div>
+
+</article>
+
+<script>
+var tot = 0, dev = 0;
+
+function attVal() {
+    return Math.ceil(Math.random() * 15) + Math.ceil(Math.random() * 15) + Math.ceil(Math.random() * 14) + Math.ceil(Math.random() * 15) + 4;
+}
+
+function run(len) {
+    var ii, rslt, display, val, mean, std;
+    for (ii = 0; ii < len; ii += 1) {
+        rslt = attVal();
+        if (rslt < 71) {
+            display = document.querySelector("#rslt" + rslt);
+            val = parseInt(display.textContent, 10);
+            display.textContent = val + 1;
+        } else {
+            console.log(rslt);
+        }
+        tot += rslt;
+        dev += (35.5 - rslt) * (35.5 - rslt);
+    }
+    mean = tot / len;
+    document.querySelector("#mean").textContent = mean.toPrecision(3);
+    std = Math.sqrt(dev / len);
+    document.querySelector("#std").textContent = std.toPrecision(3);
+}
+
+run(500000);
+</script>

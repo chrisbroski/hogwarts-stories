@@ -4,7 +4,7 @@
 
 ### Intro
 
-[[my.givenName]] [[my.surname]] is an 11-year-old [[my.blood]] [[my.gender.magic]] [[my.gender.noun]], born on [[my.birthMonth]] [[my.birthDate]]. [[my.gender.pronoun.possessive]] father is [[my.father.givenName]] [[my.father.surname]], a [[my.father.blood]] wizard.
+[[my.givenName]] [[my.surname]] is a [[my.age]]-year-old [[my.blood]] [[my.gender.magic]] [[my.gender.noun]], born on [[my.birthMonth]] [[my.birthDate]]. [[my.gender.pronoun.possessive]] father is [[my.father.givenName]] [[my.father.surname]], a [[my.father.blood]] wizard.
 
 ### Test Data
 

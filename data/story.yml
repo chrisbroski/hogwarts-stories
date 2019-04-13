@@ -4,11 +4,13 @@ chapters:
   file: 1.md
 - title: Diagon Alley
   file: 2.md
+- title: Home
+  file: 3.md
+appendices:
 - title: Data Test
   file: test.md
 - title: Written Test
   file: written.md
-
 atts:
 - MP
 - PS

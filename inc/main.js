@@ -56,7 +56,7 @@ function cfdToData(md) {
 function chaoticFix(filePath) {
     var xhr = new XMLHttpRequest();
     // get file with ajax
-    xhr.open("GET", "/chapter/" + filePath + "?" + Math.random(), true);
+    xhr.open("GET", "chapter/" + filePath + "?" + Math.random(), true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
@@ -102,11 +102,24 @@ function titles() {
         h1 = document.createElement("h1"),
         header = document.querySelector("section header");
 
+    // do text substitution on titles too (also on side links)
     h4.textContent = chapterData.title;
     h1.textContent = chapterData.subtitle;
 
     header.appendChild(h4);
     header.appendChild(h1);
+}
+
+function getChapter() {
+    var currentChapter = localStorage.getItem("current-chapter"),
+        kindIndex = currentChapter.split("|");
+
+    return parseInt(currentChapter, 10);
+}
+
+function setAppendix() {
+    var appIndex = parseInt(this.getAttribute("data-appendix-index"), 10);
+    loadAppendix(appIndex);
 }
 
 function displayCf(section) {
@@ -116,7 +129,7 @@ function displayCf(section) {
         interactive = document.querySelector("article section fieldset"),
         button = document.createElement("button"),
         theEnd,
-        chapterIndex = parseInt(localStorage.getItem("current-chapter"), 10);
+        chapterInfo = getChapter();
 
     interactive.innerHTML = "";
     if (section === -1) {
@@ -133,7 +146,7 @@ function displayCf(section) {
 
     // if final section, button to next chapter
     if (section + 1 >= sections.length) {
-        if (chapterIndex + 1 === data.story.chapters.length) {
+        if (chapterInfo + 1 === data.story.chapters.length) {
             theEnd = document.createElement("h2");
             theEnd.textContent = "The End";
             interactive.appendChild(theEnd);
@@ -191,7 +204,7 @@ function loadChapter(newIndex) {
     var chapterIndex = localStorage.getItem("current-chapter"),
         index = parseInt(chapterIndex, 10);
 
-    if (!index) {
+    if (!index || index < 0) {
         chapterIndex = 0;
     }
     if (newIndex) {
@@ -199,6 +212,10 @@ function loadChapter(newIndex) {
     }
     localStorage.setItem("current-chapter", chapterIndex);
     chaoticFix(data.story.chapters[chapterIndex].file);
+}
+
+function loadAppendix(newIndex) {
+    chaoticFix(data.story.appendices[newIndex].file);
 }
 
 function events() {
@@ -217,7 +234,7 @@ function events() {
 }
 
 function setChapter() {
-    localStorage.setItem("current-chapter", this.getAttribute("data-index"));
+    localStorage.setItem("current-chapter", this.getAttribute("data-chapter-index"));
     loadChapter();
 }
 
@@ -233,8 +250,17 @@ function aside() {
         p.textContent = chapter.title;
         p.className = "pseudoLink";
         p.setAttribute("data-file", chapter.file);
-        p.setAttribute("data-index", index);
+        p.setAttribute("data-chapter-index", index);
         p.onclick = setChapter;
+        ch.appendChild(p);
+    });
+    data.story.appendices.forEach(function (chapter, index) {
+        var p = document.createElement("p");
+        p.textContent = chapter.title;
+        p.className = "pseudoLink";
+        p.setAttribute("data-file", chapter.file);
+        p.setAttribute("data-appendix-index", index);
+        p.onclick = setAppendix;
         ch.appendChild(p);
     });
 }
