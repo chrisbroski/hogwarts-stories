@@ -37,7 +37,7 @@ console.log(data.names.russian.sur.length  + " russian surnames");
 console.log(data.names.russian.male.length  + " russian male names");
 console.log(data.names.russian.female.length  + " russian female names");
 
-fs.writeFile('data/data.json', JSON.stringify(data), function (err) {
+fs.writeFile('data/data.json', JSON.stringify(data, null, "  "), function (err) {
     if (err) {
         return console.log(err);
     }
