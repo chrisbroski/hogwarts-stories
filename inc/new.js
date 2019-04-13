@@ -190,6 +190,7 @@ function determineBlood() {
         lineage.maternalGrandmother = "muggle";
         return lineage;
     }
+    // What about muggle (0.02) and squib (0.01) parents?
     if (rnd < 0.0975) {
         lineage.self = "half-blood";
         if (Math.random() > 0.80) {
@@ -461,6 +462,8 @@ function createCharacter() {
     var character = {}, gender = ["male", "female"].random(), blood, names, bDate;//, sunSigns, monthNames;
     localStorage.clear();
 
+    character.city = "Hogsmeade";
+
     character.gender = {
         adjective: gender,
         noun: (gender === "male") ? "boy" : "girl",
@@ -556,8 +559,14 @@ function createCharacter() {
     character.zodiac = zodiac(character.birthDayOfYear);
     character.sunSign = data.story.sunSigns[character.zodiac];
     character.age = 11;
+    if (character.birthDayOfYear > 235) { // Whenish you get your letter (mid July)
+        character.age = 10;
+    }
 
     birthOrder();
+    character.siblings = siblings();
+    // localStorage.setItem('numberOfSiblings', numberOfSiblings);
+    // localStorage.setItem('orderInSiblings', Math.ceil(Math.random() * (numberOfSiblings + 1)));
     character.attr = generateAttributes();
     names = generateNames(character);
     character.givenName = names.self[0];
