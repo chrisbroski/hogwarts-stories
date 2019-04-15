@@ -1,0 +1,33 @@
+---
+cities:
+    wizard:
+    - Hogsmeade:
+        areas:
+        - in the forest near
+        - in
+        - on the outskirts of
+    - Ottery St. Catchpole:
+        areas:
+        - just outside of
+        - in a wizard village near
+    - Godrick's Hollow:
+        areas:
+        - near
+        - in
+    english:
+    - London:
+        areas:
+        - in
+        - in downtown
+        - near
+    - Surrey:
+        areas:
+        - in
+        - in a suburb of
+        - near
+    irish:
+    - Dublin:
+        areas:
+        - in
+        - in downtown
+        - near

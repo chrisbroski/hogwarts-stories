@@ -459,10 +459,13 @@ function characterData() {
 }
 
 function createCharacter() {
-    var character = {}, gender = ["male", "female"].random(), blood, names, bDate;//, sunSigns, monthNames;
+    var character = {}, gender = ["male", "female"].random(), blood, names, bDate, cityData;//, sunSigns, monthNames;
     localStorage.clear();
 
-    character.city = "Hogsmeade";
+    character.home = {};
+    cityData = data.cities.wizard.random();
+    character.home.city = Object.keys(cityData)[0];
+    character.home.incity = cityData[Object.keys(cityData)[0]].areas.random();
 
     character.gender = {
         adjective: gender,

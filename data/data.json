@@ -155,6 +155,66 @@
       "petty criminal": "housewitch"
     }
   },
+  "cities": {
+    "wizard": [
+      {
+        "Hogsmeade": {
+          "areas": [
+            "in the forest near",
+            "in",
+            "on the outskirts of"
+          ]
+        }
+      },
+      {
+        "Ottery St. Catchpole": {
+          "areas": [
+            "just outside of",
+            "in a wizard village near"
+          ]
+        }
+      },
+      {
+        "Godrick's Hollow": {
+          "areas": [
+            "just outside of",
+            "in"
+          ]
+        }
+      }
+    ],
+    "english": [
+      {
+        "London": {
+          "areas": [
+            "in",
+            "in downtown",
+            "near"
+          ]
+        }
+      },
+      {
+        "Surrey": {
+          "areas": [
+            "in",
+            "in a suburb of",
+            "near"
+          ]
+        }
+      }
+    ],
+    "irish": [
+      {
+        "Dublin": {
+          "areas": [
+            "in",
+            "in downtown",
+            "near"
+          ]
+        }
+      }
+    ]
+  },
   "flavors": [
     {
       "baked beans": {
@@ -1279,7 +1339,7 @@
       }
     },
     {
-      "acerola fruit": {
+      "acerola": {
         "sweet": 1,
         "sour": 2,
         "salty": 0,
@@ -1345,7 +1405,7 @@
       }
     },
     {
-      "carambola fruit": {
+      "carambola": {
         "sweet": 1,
         "sour": 1,
         "salty": 0,
@@ -1356,7 +1416,7 @@
       }
     },
     {
-      "cherimoya fruit": {
+      "cherimoya": {
         "sweet": 1,
         "sour": 1,
         "salty": 0,
@@ -1378,7 +1438,7 @@
       }
     },
     {
-      "date fruit": {
+      "date": {
         "sweet": 1,
         "sour": 1,
         "salty": 0,
@@ -1389,7 +1449,7 @@
       }
     },
     {
-      "durian fruit": {
+      "durian": {
         "sweet": 2,
         "sour": 0,
         "salty": 0,
@@ -1411,7 +1471,7 @@
       }
     },
     {
-      "feijoa fruit": {
+      "feijoa": {
         "sweet": 1,
         "sour": 1,
         "salty": 0,
@@ -1488,7 +1548,7 @@
       }
     },
     {
-      "jambolan fruit": {
+      "jambolan": {
         "sweet": 1,
         "sour": 1,
         "salty": 0,
@@ -1499,7 +1559,7 @@
       }
     },
     {
-      "jujube fruit": {
+      "jujube": {
         "sweet": 1,
         "sour": 1,
         "salty": 0,
@@ -1543,7 +1603,7 @@
       }
     },
     {
-      "longan fruit": {
+      "longan": {
         "sweet": 1,
         "sour": 1,
         "salty": 0,
@@ -1554,7 +1614,7 @@
       }
     },
     {
-      "lychee fruit": {
+      "lychee": {
         "sweet": 1,
         "sour": 1,
         "salty": 0,
@@ -1587,7 +1647,7 @@
       }
     },
     {
-      "purple mangosteen fruit": {
+      "purple mangosteen": {
         "sweet": 1,
         "sour": 1,
         "salty": 0,
@@ -1675,7 +1735,7 @@
       }
     },
     {
-      "pitanga fruit": {
+      "pitanga": {
         "sweet": 1,
         "sour": 2,
         "salty": 0,
@@ -1752,7 +1812,7 @@
       }
     },
     {
-      "pummelo fruit": {
+      "pummelo": {
         "sweet": 1,
         "sour": 1,
         "salty": 0,
@@ -1818,7 +1878,7 @@
       }
     },
     {
-      "sapodilla fruit": {
+      "sapodilla": {
         "sweet": 1,
         "sour": 1,
         "salty": 0,
@@ -1829,7 +1889,7 @@
       }
     },
     {
-      "mamey sapote fruit": {
+      "mamey sapote": {
         "sweet": 1,
         "sour": 1,
         "salty": 0,
@@ -1840,7 +1900,7 @@
       }
     },
     {
-      "soursop fruit": {
+      "soursop": {
         "sweet": 1,
         "sour": 2,
         "salty": 0,
@@ -2852,12 +2912,12 @@
       }
     },
     {
-      "collard green": {
+      "collard greens with bacon": {
         "sweet": 0,
         "sour": 0,
-        "salty": 0,
+        "salty": 1,
         "bitter": 1,
-        "savory": 0,
+        "savory": 1,
         "hot": 0,
         "putrid": 0
       }
@@ -3567,6 +3627,17 @@
       }
     },
     {
+      "chicken-fried steak": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 2,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
       "roast pork": {
         "sweet": 0,
         "sour": 0,
@@ -3985,7 +4056,7 @@
       }
     },
     {
-      "chicken tikka": {
+      "chicken tikka masala": {
         "sweet": 0,
         "sour": 0,
         "salty": 1,
@@ -5448,6 +5519,17 @@
       }
     },
     {
+      "matcha tea": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
       "caffè latte": {
         "sweet": 1,
         "sour": 0,
@@ -5665,6 +5747,17 @@
         "savory": 0,
         "hot": 1,
         "putrid": 1
+      }
+    },
+    {
+      "mulled wine": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 0,
+        "bitter": 0,
+        "savory": 0,
+        "hot": 1,
+        "putrid": 0
       }
     },
     {
@@ -5899,6 +5992,28 @@
       }
     },
     {
+      "chamomile tea": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "boba tea": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
       "kombucha tea": {
         "sweet": 1,
         "sour": 1,
@@ -5932,7 +6047,7 @@
       }
     },
     {
-      "yerba mate": {
+      "yerba mate tea": {
         "sweet": 1,
         "sour": 0,
         "salty": 0,
@@ -7131,6 +7246,28 @@
       }
     },
     {
+      "Gefilte Fish": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 1
+      }
+    },
+    {
+      "fried catfish": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 1
+      }
+    },
+    {
       "pineapple upside-down cake": {
         "sweet": 2,
         "sour": 1,
@@ -8110,6 +8247,28 @@
       }
     },
     {
+      "chocolate babka": {
+        "sweet": 2,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 1,
+        "savory": 0,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "cinnamon babka": {
+        "sweet": 2,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "savory": 0,
+        "hot": 1,
+        "putrid": 0
+      }
+    },
+    {
       "ceasar salad": {
         "sweet": 0,
         "sour": 1,
@@ -8513,7 +8672,7 @@
         "bitter": 0,
         "savory": 0,
         "hot": 0,
-        "putrid": 1
+        "putrid": 2
       }
     },
     {
@@ -10329,6 +10488,149 @@
         "savory": 1,
         "hot": 0,
         "putrid": 1
+      }
+    },
+    {
+      "potato knish": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 2,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "cheese blintz with strawberries": {
+        "sweet": 2,
+        "sour": 1,
+        "salty": 0,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "noodle kugel": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 2,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "potato latke": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "shakshuka": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 2,
+        "hot": 1,
+        "putrid": 0
+      }
+    },
+    {
+      "bibimbap": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 2,
+        "hot": 1,
+        "putrid": 0
+      }
+    },
+    {
+      "pickled egg": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "hominy grits": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "savory": 0,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "cajun shrimp and grits": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 1,
+        "putrid": 1
+      }
+    },
+    {
+      "hushpuppies": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "fried green tomatoes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "texas-style barbebcued brisket": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 2,
+        "hot": 1,
+        "putrid": 0
+      }
+    },
+    {
+      "sweet potato fries": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 0
       }
     }
   ],

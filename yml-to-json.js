@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+
 const yaml = require('js-yaml');
 const fs = require('fs');
 
@@ -5,11 +7,13 @@ var data = {};
 
 data.story = yaml.safeLoad(fs.readFileSync('data/story.yml', 'utf8'));
 data.careers = yaml.safeLoad(fs.readFileSync('data/careers.yml', 'utf8')).careers;
+data.cities = yaml.safeLoad(fs.readFileSync('data/cities.yml', 'utf8')).cities;
 console.log(data.careers.wealthy.length  + " wealthy careers");
 console.log(data.careers["middle class"].length  + " middle class careers");
 console.log(data.careers.average.length  + " average careers");
 console.log(data.careers.struggling.length  + " struggling careers");
 console.log(data.careers.poor.length  + " poor careers");
+console.log(data.cities.wizard.length  + " cities");
 
 data.flavors = yaml.safeLoad(fs.readFileSync('data/flavors.yml', 'utf8')).flavors;
 console.log(data.flavors.length  + " flavors");

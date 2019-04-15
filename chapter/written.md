@@ -4,7 +4,7 @@
 
 ### Intro
 
-Mr. and Mrs. [[my.surname]] lived in [[my.city]] with their [[my.siblings]] children.
+Mr. and Mrs. [[my.surname]] lived [[my.home.incity]] [[my.home.city]] with their [[my.siblings]] children.
 
 Mr. Dursley was the director of a firm called Grunnings, which made drills. He was a big, beefy man with hardly any neck, although he did have a very large mustache. Mrs. Dursley was thin and blonde and had nearly twice the usual amount of neck, which came in very useful as she spent so much of her time craning over garden fences, spying on the neighbors. The Dursleys had a small son called Dudley and in their opinion there was no finer boy anywhere.
 
