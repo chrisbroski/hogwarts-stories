@@ -1,3 +1,9 @@
+# What about the inventor of a popular potion, candy, or device?
+# Shops can have owners (middle-class) managers (average) and cashiers (struggling)
+# List ministry departments from the elevator ride at the beginning or OotP
+# Writers, reporters, publishers could have specific periodicals: Witch Weekly, Transfiguration Today, The Daily Prophet, The Quibbler
+# Shops: (owner, manager, cashier)
+# Candy, joke, cauldron, wizarding equipment, tavern, pub, restaurant, ice cream, book, robe, wand, apothecary, tea, pet, museum, quidditch, magical instrument sales and repair, broomstick, music, travel, stationary, second hand items, funeral parlour
 careers:
     wealthy:
     - high-level ministry official
@@ -11,7 +17,25 @@ careers:
 
     middle class:
     - mid-level ministry official
-    - shop owner
+    - candy shop proprietor
+    - joke shop proprietor
+    - cauldron shop proprietor
+    - wizarding equipment shop proprietor
+    - tavern proprietor
+    - pub proprietor
+    - restaurant proprietor
+    - book shop proprietor
+    - robe shop proprietor
+    - apothecary proprietor
+    - magical pet shop proprietor
+    - quidditch shop proprietor
+    - magical instrument sales and repair shop proprietor
+    - magical music shop proprietor
+    - magical travel agency proprietor
+    - stationary shop proprietor
+    - funeral home proprietor
+    - magical antiques dealer
+    - wand maker
     - successful author
     - robe designer
     - healer
@@ -21,9 +45,16 @@ careers:
     - mediwizard
     - potioneer
     - metal charmer
-    - desk job at Gringotts
+    - manager at Gringotts
     - host of popular radio show
     - advertising agent
+    - exotic fungus hunter
+    - exotic herb hunter
+    - exotic magical animal hunter
+    - exotic insect hunter
+    - unspeakable
+    - greenhouse owner
+    - professor
 
     average:
     - low-level ministry official
@@ -34,7 +65,8 @@ careers:
     - chef
     - herbologist
     - photographer
-    - reporter
+    - newspaper reporter
+    - magazine article author
     - dragon keeper
     - Knight bus driver
     - Knight bus conductor
@@ -46,24 +78,92 @@ careers:
     - auror
     - quidditch referee
     - quidditch player
-    - radio engineer
-    - radio announcer
+    - broadcaster
     - farmer
+    - magical security expert
+    - tour guide
+    - astronomer
+    - seer
+    - obliviator
+    - candy shop manager
+    - joke shop manger
+    - cauldron shop manager
+    - wizarding equipment shop manager
+    - tavern manager
+    - restaurant manager
+    - ice cream shop proprietor
+    - second hand magical item shop proprietor
+    - book shop manager
+    - robe shop manager
+    - apothecary manager
+    - tea shop proprietor
+    - magical pet shop owner
+    - quidditch shop manager
+    - magical instrument sales and repair shop manager
+    - magical music shop manager
+    - magical travel agent
+    - stationary shop manager
+    - funeral home manager
+    - magical antiques store manager
+    - eel farmer
+    - magical herb farmer
+    - insect farmer
+    - potion ingredient collector
+    - unicorn wrangler
+    - thestral wrangler
+    - bat farmer
+    - greenhouse employee
+    - artist
+    - apparition examiner
+    - archivist
+    - aurologist
+    - professional dueler
+    - reptile keeper
 
     struggling:
     - amatuer actor
     - cook
     - waiter
-    - clerk
+    - cashier
     - groundskeeper
     - amatuer photographer
     - amatuer musician
+    - amatuer deuler
     - bartender
     - amatuer author
+    - freelance reporter
     - amatuer quidditch player
     - amatuer herbologist
     - amatuer dragonologist
     - amatuer magizoologist
+    - apprentice wand maker
+    - candy shop cashier
+    - joke shop owner
+    - cauldron shop cashier
+    - wizarding equipment shop cashier
+    - ice cream shop employee
+    - book shop cashier
+    - robe shop cashier
+    - apothecary cashier
+    - magical pet shop employee
+    - quidditch shop cashier
+    - magical instrument repairwizard
+    - music teacher
+    - stationary shop cashier
+    - second hand magical item shop cashier
+    - funeral home employee
+    - magical antiques shop cashier
+    - kneezel breeder
+    - streeler breeder
+    - crup breeder
+    - owl breeder
+    - toad farmer
+    - flobberworm farmer
+    - slug farmer
+    - magical fisherman
+    - magical museum docent
+    - poet
+    - trainee healer
 
     poor:
     - unemployed wizard
@@ -75,7 +175,7 @@ careers:
 
     feminized:
         waiter: waitress
-        clerk: cashier
+        cashier: cashier
         groundskeeper: maid
         unemployed wizard: housewitch
         disabled wizard: disabled witch
@@ -84,3 +184,5 @@ careers:
         mediwizard: mediwitch
         bartender: bar maid
         petty criminal: housewitch
+        magical instrument repairwizard: magical instrument repairwitch
+        magical fisherman: magical fisherwoman

@@ -80,7 +80,25 @@
     ],
     "middle class": [
       "mid-level ministry official",
-      "shop owner",
+      "candy shop proprietor",
+      "joke shop proprietor",
+      "cauldron shop proprietor",
+      "wizarding equipment shop proprietor",
+      "tavern proprietor",
+      "pub proprietor",
+      "restaurant proprietor",
+      "book shop proprietor",
+      "robe shop proprietor",
+      "apothecary proprietor",
+      "magical pet shop proprietor",
+      "quidditch shop proprietor",
+      "magical instrument sales and repair shop proprietor",
+      "magical music shop proprietor",
+      "magical travel agency proprietor",
+      "stationary shop proprietor",
+      "funeral home proprietor",
+      "magical antiques dealer",
+      "wand maker",
       "successful author",
       "robe designer",
       "healer",
@@ -90,9 +108,16 @@
       "mediwizard",
       "potioneer",
       "metal charmer",
-      "desk job at Gringotts",
+      "manager at Gringotts",
       "host of popular radio show",
-      "advertising agent"
+      "advertising agent",
+      "exotic fungus hunter",
+      "exotic herb hunter",
+      "exotic magical animal hunter",
+      "exotic insect hunter",
+      "unspeakable",
+      "greenhouse owner",
+      "professor"
     ],
     "average": [
       "low-level ministry official",
@@ -103,7 +128,8 @@
       "chef",
       "herbologist",
       "photographer",
-      "reporter",
+      "newspaper reporter",
+      "magazine article author",
       "dragon keeper",
       "Knight bus driver",
       "Knight bus conductor",
@@ -115,24 +141,92 @@
       "auror",
       "quidditch referee",
       "quidditch player",
-      "radio engineer",
-      "radio announcer",
-      "farmer"
+      "broadcaster",
+      "farmer",
+      "magical security expert",
+      "tour guide",
+      "astronomer",
+      "seer",
+      "obliviator",
+      "candy shop manager",
+      "joke shop manger",
+      "cauldron shop manager",
+      "wizarding equipment shop manager",
+      "tavern manager",
+      "restaurant manager",
+      "ice cream shop proprietor",
+      "second hand magical item shop proprietor",
+      "book shop manager",
+      "robe shop manager",
+      "apothecary manager",
+      "tea shop proprietor",
+      "magical pet shop owner",
+      "quidditch shop manager",
+      "magical instrument sales and repair shop manager",
+      "magical music shop manager",
+      "magical travel agent",
+      "stationary shop manager",
+      "funeral home manager",
+      "magical antiques store manager",
+      "eel farmer",
+      "magical herb farmer",
+      "insect farmer",
+      "potion ingredient collector",
+      "unicorn wrangler",
+      "thestral wrangler",
+      "bat farmer",
+      "greenhouse employee",
+      "artist",
+      "apparition examiner",
+      "archivist",
+      "aurologist",
+      "professional dueler",
+      "reptile keeper"
     ],
     "struggling": [
       "amatuer actor",
       "cook",
       "waiter",
-      "clerk",
+      "cashier",
       "groundskeeper",
       "amatuer photographer",
       "amatuer musician",
+      "amatuer deuler",
       "bartender",
       "amatuer author",
+      "freelance reporter",
       "amatuer quidditch player",
       "amatuer herbologist",
       "amatuer dragonologist",
-      "amatuer magizoologist"
+      "amatuer magizoologist",
+      "apprentice wand maker",
+      "candy shop cashier",
+      "joke shop owner",
+      "cauldron shop cashier",
+      "wizarding equipment shop cashier",
+      "ice cream shop employee",
+      "book shop cashier",
+      "robe shop cashier",
+      "apothecary cashier",
+      "magical pet shop employee",
+      "quidditch shop cashier",
+      "magical instrument repairwizard",
+      "music teacher",
+      "stationary shop cashier",
+      "second hand magical item shop cashier",
+      "funeral home employee",
+      "magical antiques shop cashier",
+      "kneezel breeder",
+      "streeler breeder",
+      "crup breeder",
+      "owl breeder",
+      "toad farmer",
+      "flobberworm farmer",
+      "slug farmer",
+      "magical fisherman",
+      "magical museum docent",
+      "poet",
+      "trainee healer"
     ],
     "poor": [
       "unemployed wizard",
@@ -144,7 +238,7 @@
     ],
     "feminized": {
       "waiter": "waitress",
-      "clerk": "cashier",
+      "cashier": "cashier",
       "groundskeeper": "maid",
       "unemployed wizard": "housewitch",
       "disabled wizard": "disabled witch",
@@ -152,7 +246,9 @@
       "amatuer actor": "amatuer actress",
       "mediwizard": "mediwitch",
       "bartender": "bar maid",
-      "petty criminal": "housewitch"
+      "petty criminal": "housewitch",
+      "magical instrument repairwizard": "magical instrument repairwitch",
+      "magical fisherman": "magical fisherwoman"
     }
   },
   "cities": {
@@ -196,9 +292,104 @@
       {
         "Surrey": {
           "areas": [
-            "in",
-            "in a suburb of",
             "near"
+          ]
+        }
+      },
+      {
+        "Birmingham": {
+          "areas": [
+            "near",
+            "outside of"
+          ]
+        }
+      },
+      {
+        "Leeds": {
+          "areas": [
+            "near",
+            "outside of"
+          ]
+        }
+      },
+      {
+        "Sheffield": {
+          "areas": [
+            "near",
+            "outside of"
+          ]
+        }
+      },
+      {
+        "Bradford": {
+          "areas": [
+            "near",
+            "outside of"
+          ]
+        }
+      },
+      {
+        "Manchester": {
+          "areas": [
+            "near",
+            "outside of"
+          ]
+        }
+      },
+      {
+        "Liverpool": {
+          "areas": [
+            "near",
+            "outside of"
+          ]
+        }
+      },
+      {
+        "Bristol": {
+          "areas": [
+            "near",
+            "outside of"
+          ]
+        }
+      },
+      {
+        "Newcastle": {
+          "areas": [
+            "near",
+            "outside of"
+          ]
+        }
+      },
+      {
+        "Sunderland": {
+          "areas": [
+            "near",
+            "outside of"
+          ]
+        }
+      },
+      {
+        "Wolverhampton": {
+          "areas": [
+            "near",
+            "outside of"
+          ]
+        }
+      },
+      {
+        "Glasgow": {
+          "areas": [
+            "in",
+            "near",
+            "outside of"
+          ]
+        }
+      },
+      {
+        "Leicester": {
+          "areas": [
+            "near",
+            "outside of"
           ]
         }
       }
@@ -209,6 +400,47 @@
           "areas": [
             "in",
             "in downtown",
+            "near"
+          ]
+        }
+      },
+      {
+        "Belfast": {
+          "areas": [
+            "in",
+            "in downtown",
+            "near"
+          ]
+        }
+      },
+      {
+        "Cork": {
+          "areas": [
+            "in",
+            "near"
+          ]
+        }
+      },
+      {
+        "Derry": {
+          "areas": [
+            "in",
+            "near"
+          ]
+        }
+      },
+      {
+        "Limerick": {
+          "areas": [
+            "in",
+            "near"
+          ]
+        }
+      },
+      {
+        "Galway": {
+          "areas": [
+            "in",
             "near"
           ]
         }
@@ -624,6 +856,17 @@
       }
     },
     {
+      "saskatoon berry": {
+        "sweet": 1,
+        "sour": 2,
+        "salty": 0,
+        "bitter": 0,
+        "savory": 0,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
       "cream puff": {
         "sweet": 2,
         "sour": 0,
@@ -789,7 +1032,7 @@
       }
     },
     {
-      "ketchup": {
+      "tomato ketchup": {
         "sweet": 1,
         "sour": 1,
         "salty": 1,
@@ -4829,7 +5072,7 @@
       "feta cheese": {
         "sweet": 0,
         "sour": 0,
-        "salty": 1,
+        "salty": 2,
         "bitter": 0,
         "savory": 1,
         "hot": 0,
@@ -5087,6 +5330,17 @@
         "savory": 1,
         "hot": 0,
         "putrid": 2
+      }
+    },
+    {
+      "goat cheese": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 1
       }
     },
     {
@@ -6058,6 +6312,83 @@
       }
     },
     {
+      "pilsner beer": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 1,
+        "savory": 0,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "scotch ale": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "irish stout": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 1,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "India pale ale": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 2,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "brown ale": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 1,
+        "savory": 0,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "dark lager": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 1,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "rosé wine": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 0,
+        "bitter": 0,
+        "savory": 0,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
       "apple pie": {
         "sweet": 2,
         "sour": 1,
@@ -6350,7 +6681,7 @@
         "salty": 1,
         "bitter": 0,
         "savory": 2,
-        "hot": 0,
+        "hot": 1,
         "putrid": 1
       }
     },
@@ -6652,7 +6983,7 @@
       }
     },
     {
-      "tuna salad sandwich": {
+      "tuna salad": {
         "sweet": 0,
         "sour": 1,
         "salty": 1,
@@ -6663,7 +6994,7 @@
       }
     },
     {
-      "chicken salad sandwich": {
+      "chicken salad": {
         "sweet": 1,
         "sour": 0,
         "salty": 1,
@@ -6674,7 +7005,7 @@
       }
     },
     {
-      "egg salad sandwich": {
+      "egg salad": {
         "sweet": 0,
         "sour": 0,
         "salty": 1,
@@ -7598,7 +7929,7 @@
       }
     },
     {
-      "banana split": {
+      "banana split sundae": {
         "sweet": 2,
         "sour": 0,
         "salty": 0,
@@ -8478,8 +8809,8 @@
       }
     },
     {
-      "tagliatelle bolognese": {
-        "sweet": 0,
+      "bolognese ragù": {
+        "sweet": 1,
         "sour": 0,
         "salty": 1,
         "bitter": 0,
@@ -10632,6 +10963,248 @@
         "hot": 0,
         "putrid": 0
       }
+    },
+    {
+      "apple butter": {
+        "sweet": 2,
+        "sour": 1,
+        "salty": 0,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 1,
+        "putrid": 0
+      }
+    },
+    {
+      "cranberry sauce": {
+        "sweet": 2,
+        "sour": 2,
+        "salty": 0,
+        "bitter": 0,
+        "savory": 0,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "mortadella": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 1
+      }
+    },
+    {
+      "barbecue sauce": {
+        "sweet": 2,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 1
+      }
+    },
+    {
+      "melba toast": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "milk toast": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 1
+      }
+    },
+    {
+      "avocado toast": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "beans on toast": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "animal crackers": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "fig newton": {
+        "sweet": 2,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 1
+      }
+    },
+    {
+      "gingerbread man": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 1,
+        "putrid": 0
+      }
+    },
+    {
+      "cock sauce": {
+        "sweet": 2,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 0,
+        "hot": 1,
+        "putrid": 0
+      }
+    },
+    {
+      "jamón ibérico": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 2,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "Guyanese pepperpot": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 2,
+        "hot": 1,
+        "putrid": 0
+      }
+    },
+    {
+      "irish stew": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "rabbit stew": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 2,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "balsamic vinegar": {
+        "sweet": 1,
+        "sour": 2,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 1,
+        "putrid": 0
+      }
+    },
+    {
+      "stromboli": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 1,
+        "putrid": 0
+      }
+    },
+    {
+      "Hawiian pizza": {
+        "sweet": 2,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "pizza margherita": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "steak diane": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 2,
+        "hot": 0,
+        "putrid": 0
+      }
+    },
+    {
+      "salad cream": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "savory": 1,
+        "hot": 0,
+        "putrid": 0
+      }
     }
   ],
   "names": {
@@ -11832,6 +12405,7 @@
         "Bathsheda",
         "Beatrix",
         "Begonia",
+        "Belladonna",
         "Bellatrix",
         "Bellona",
         "Belvina",
@@ -12018,7 +12592,6 @@
         "Julie",
         "Juliet",
         "Juno",
-        "Karen",
         "Karla",
         "Katherine",
         "Kathleen",
@@ -12037,6 +12610,7 @@
         "Lenore",
         "Leona",
         "Leopoldina",
+        "Leta",
         "Leto",
         "Libra",
         "Lillian",

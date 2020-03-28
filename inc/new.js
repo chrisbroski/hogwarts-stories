@@ -11,8 +11,40 @@ Array.prototype.random = function () {
     return this[Math.floor(Math.random() * this.length)];
 };
 
+function socialClass(monthlyIncome) {
+    // Should probably take into account family sizesa as well
+    if (monthlyIncome >= 100) {
+        return 'wealthy';
+    }
+    if (monthlyIncome >= 60) {
+        return 'middle class';
+    }
+    if (monthlyIncome >= 30) {
+        return 'average';
+    }
+    if (monthlyIncome >= 12) {
+        return 'struggling';
+    }
+    return 'poor';
+}
+
+function boxMuller() {
+    var x = 0, y = 0, rds, c;
+
+    do {
+        x = Math.random() * 2 - 1;
+        y = Math.random() * 2 - 1;
+        rds = x * x + y * y;
+    }
+    while (rds == 0 || rds > 1);
+
+    c = Math.sqrt(-2 * Math.log(rds) / rds);
+    return [x * c, y * c];
+}
+
 function attVal() {
-    return Math.ceil(Math.random() * 15) + Math.ceil(Math.random() * 15) + Math.ceil(Math.random() * 14) + Math.ceil(Math.random() * 15) + 4;
+    // return Math.ceil(Math.random() * 15) + Math.ceil(Math.random() * 15) + Math.ceil(Math.random() * 14) + Math.ceil(Math.random() * 15) + 4;
+    return Math.round(boxMuller()[0] * 6.5 + 35.5);
 }
 
 function boost(mf, amt) {
@@ -30,8 +62,7 @@ function zodiac(birthDayOfYear) {
     return Math.floor(adjustedBDay / 30.42);
 }
 
-function generateAttributes() {
-    var my = characterData();
+function generateAttributes(zodiac) {
     attr = {};
     data.story.atts.forEach(function (att) {
         attr[att] = attVal();
@@ -44,80 +75,106 @@ function generateAttributes() {
     attr.WS = attr.WS + boost('F', 5);
 
     // Magic folk are actually affected by the zodiac
-    attr[my.zodiac] = attr[my.zodiac] + 3;
+    attr[data.story.atts[zodiac]] = attr[data.story.atts[zodiac]] + 3;
 
     return attr;
 }
 
-function siblings() {
-    var sibs = 0;
-    while (sibs < 6) {
-        sibs = Math.ceil(Math.random() * 6) + Math.ceil(Math.random() * 6);
+function numberOfSiblings() {
+    // https://fivethirtyeight.com/features/how-long-most-parents-wait-between-children/
+    var sibs = Math.floor(boxMuller()[0] * 2 + 3);
+    if (sibs < 0) {
+        sibs = 0;
     }
-    return sibs - 6;
+    return sibs;
 }
 
-function birthOrder() {
-    var numberOfSiblings = siblings();
-    localStorage.setItem('numberOfSiblings', numberOfSiblings);
-    localStorage.setItem('orderInSiblings', Math.ceil(Math.random() * (numberOfSiblings + 1)));
+function createSibling(gender, givenName, daysDifferent) {
+    return {
+        "gender": gender,
+        "givenName": givenName,
+        //"age": age,
+        //"birthDayOfYear": birthDayOfYear
+        "daysDiff": daysDifferent
+    };
 }
 
-function generateCareer(jobClass, inheritance, MotherOrFather, spouseClass, spouseInheritance) {
-    // TODO: shop owners and clerks, what kind of shop? Candy, joke, cauldron, wizarding equipment, tavern, pub, restaurant, ice cream, book, broom, robe, wand, apothecary, tea, pet, museum, quidditch, magical instrument sales and repair, broomstick, music, travel, stationary, second hand items, funeral parlour, wand...
-    // security job: bodyguard, security guard, magical law enforcement
-    // tour guide, astronomer, potion ingredient hunter,
-    // would hobbies be good? Certainly if your spouse makes all the money
-    var careers = {
-        'wealthy': ['high-level ministry official', 'importer of exotic magical items', 'star quidditch player', 'popular musician', 'treasure hunter', 'popular actor', 'popular author'],
-        'middle class': ['mid-level ministry official', 'shop owner', 'successful author', 'robe designer', 'healer', 'emergency healer', 'arithmancer', 'curse breaker', 'mediwizard', 'potioneer', 'metal charmer', 'desk job at Gringotts'],
-        'average': ['low-level ministry official', 'quill maker', 'caldron maker', 'book binder', 'broom maker', 'chef', 'herbologist', 'photographer', 'reporter', 'dragon keeper', 'Knight bus driver', 'Knight bus conductor', 'librarian', 'dragonologist', 'owlet trainer', 'owl post office employee', 'magizoologist', 'auror', 'quidditch referee', 'quidditch player'],
-        'struggling': ['amatuer actor', 'cook', 'waiter', 'clerk', 'groundskeeper', 'amatuer photographer', 'amatuer musician', 'bartender', 'amatuer author', 'amatuer quidditch player', 'amatuer herbologist', 'amatuer dragonologist', 'amatuer magizoologist'],
-        'poor': ['unemployed wizard', 'petty criminal', 'disabled wizard', 'street vendor', 'junk collector', 'street cleaner']
-    },
-        femaleVersions = {'waiter': 'waitress', 'clerk': 'cashier', 'groundskeeper': 'maid', 'unemployed wizard': 'housewitch', 'disabled wizard': 'disabled witch', 'popular actor': 'popular actress', 'amatuer actor': 'amatuer actress', 'mediwizard': 'mediwitch', 'bartender': 'bar maid', 'petty criminal': 'housewitch'},
-        job = careers[jobClass][Math.floor(Math.random() * careers[jobClass].length)],
-        rand = Math.random(),
-        my = characterData();
+function createSiblings(birthDate, mothersEth) {
+    var numberOfSibs = numberOfSiblings();
+    var siblings = [];
+    var ii;
+
+    localStorage.setItem('numberOfSiblings', numberOfSibs);
+    var birthOrder = Math.ceil(Math.random() * numberOfSibs);
+    localStorage.setItem('orderInSiblings', birthOrder);
+    var youngerSiblings = numberOfSibs - birthOrder + 1;
+    var olderSiblings = numberOfSibs - youngerSiblings;
+    if (youngerSiblings < 1) {
+        youngerSiblings = 0;
+    }
+    var gender, age, givenName, daysDifferent;
+    // Wait what about twins? about 3% maybe?
+
+    for (ii = 0; ii < youngerSiblings; ii += 1) {
+        gender = ['male', 'female'].random();
+        givenName = getName(gender, mothersEth);
+        siblings.push(createSibling(gender, givenName, -1));
+    }
+
+    for (ii = 0; ii < olderSiblings; ii += 1) {
+        gender = ['male', 'female'].random();
+        givenName = getName(gender, mothersEth);
+        siblings.push(createSibling(gender, givenName, 1));
+    }
+
+    return siblings;
+}
+
+function findState(MotherOrFather) {
+    var rand = Math.random();
 
     // Add state "unknown"
     // Mothers can't be unknown unless its both parents (baby in a basket)
-    if (MotherOrFather === 'Father') {
+    if (MotherOrFather === 'Mother') {
+        if (rand < 0.02) {
+            return 'deceased';
+        }
+        if (rand < 0.03) {
+            return 'whereabouts unknown';
+        }
+        if (rand < 0.04) {
+            return 'St. Mungo\'s long-term care';
+        }
+    } else {
         if (rand < 0.01) {
-            my.father.state = 'currently in Azkaban';
-            return '';
+            return 'currently in Azkaban';
         }
         if (rand < 0.03) {
             // TODO: cause of death. Esp important for grandparents
             // Disease, murder, spell gone wrong, bad potion, cursed artifact or trap, died in prison, magical animal attack
             // Grandparents could die uneventfully
-            my.father.state = 'deceased';
-            return '';
+            return 'deceased';
         }
         if (rand < 0.05) {
-            my.father.state = 'whereabouts unknown';
-            return '';
+            return 'whereabouts unknown';
         }
         if (rand < 0.06) {
             // Bad spell, cursed artifact, trap, bad potion
-            my.father.state = 'in St. Mungo\'s long-term care';
-            return '';
+            return 'in St. Mungo\'s long-term care';
         }
-    } else {
-        if (rand < 0.02) {
-            my.mother.state = 'deceased';
-            return '';
-        }
-        if (rand < 0.03) {
-            my.mother.state = 'whereabouts unknown';
-            return '';
-        }
-        if (rand < 0.04) {
-            my.father.state = 'St. Mungo\'s long-term care';
-            return '';
-        }
-        if (femaleVersions[job]) {
-            job = femaleVersions[job];
+    }
+    return "";
+}
+
+function generateCareer(jobClass, inheritance, MotherOrFather, spouseClass, spouseInheritance) {
+    /*
+    Jobs in the wizarding world are typically either public sector or shops - running them and making the things that they sell.
+    */
+    var job = data.careers[jobClass].random();
+
+    if (MotherOrFather === 'Mother') {
+        if (data.careers.feminized[job]) {
+            job = data.careers.feminized[job];
         }
     }
 
@@ -213,16 +270,17 @@ function determineBlood() {
         lineage.maternalGrandmother = "muggle";
         return lineage;
     }
-    if (rnd < 0.1475) {
-        lineage.self = "half-blood";
-        lineage.father = "muggle-born";
-        lineage.mother = "muggle-born";
-        lineage.paternalGrandfather = "muggle";
-        lineage.paternalGrandmother = "muggle";
-        lineage.maternalGrandfather = "muggle";
-        lineage.maternalGrandmother = "muggle";
-        return lineage;
-    }
+    // Is this necessary?
+    // if (rnd < 0.1475) {
+    //     lineage.self = "half-blood";
+    //     lineage.father = "muggle-born";
+    //     lineage.mother = "muggle-born";
+    //     lineage.paternalGrandfather = "muggle";
+    //     lineage.paternalGrandmother = "muggle";
+    //     lineage.maternalGrandfather = "muggle";
+    //     lineage.maternalGrandmother = "muggle";
+    //     return lineage;
+    // }
     if (rnd < 0.2425) {
         lineage.father = "half-blood";
         if (Math.random() > 0.50) {
@@ -241,20 +299,21 @@ function determineBlood() {
         }
         return lineage;
     }
-    if (rnd < 0.3465) {
-        lineage.father = "half-blood";
-        lineage.mother = "half-blood";
-        if (Math.random() > 0.50) {
-            lineage.paternalGrandfather = "muggle-born";
-        } else {
-            lineage.paternalGrandmother = "muggle-born";
-        }
-        if (Math.random() > 0.50) {
-            lineage.maternalGrandfather = "muggle-born";
-        } else {
-            lineage.maternalGrandmother = "muggle-born";
-        }
-    }
+    // This is weird too
+    // if (rnd < 0.3465) {
+    //     lineage.father = "half-blood";
+    //     lineage.mother = "half-blood";
+    //     if (Math.random() > 0.50) {
+    //         lineage.paternalGrandfather = "muggle-born";
+    //     } else {
+    //         lineage.paternalGrandmother = "muggle-born";
+    //     }
+    //     if (Math.random() > 0.50) {
+    //         lineage.maternalGrandfather = "muggle-born";
+    //     } else {
+    //         lineage.maternalGrandmother = "muggle-born";
+    //     }
+    // }
     return lineage;
 }
 
@@ -265,117 +324,160 @@ function getName(nameType, culture) {
     return data.names[culture][nameType][rnd];
 }
 
-function generateNames(my) {
-    var rnd, eth = "english", names = {
-        self: [],
-        father: [],
-        mother: [],
-        paternalGrandfather: [],
-        paternalGrandmother: [],
-        maternalGrandfather: [],
-        maternalGrandmother: []
-    };
-    if (Math.random() < 0.1) {
-        eth = "irish";
+function mixedFamily(my, ethnicity) {
+    var rnd = Math.random();
+    if (rnd < 3) {
+        my.father.father.ethnicity = ethnicity;
+    } else if (rnd < 6) {
+        my.father.mother.ethnicity = ethnicity;
+    } else if (rnd < 9) {
+        my.mother.father.ethnicity = ethnicity;
+    } else if (rnd < 12) {
+        my.mother.mother.ethnicity = ethnicity;
+    } else if (rnd < 22) {
+        my.father.ethnicity = ethnicity;
+        my.father.father.ethnicity = ethnicity;
+        my.father.mother.ethnicity = ethnicity;
+    } else if (rnd < 32) {
+        my.mother.ethnicity = ethnicity;
+        my.mother.father.ethnicity = ethnicity;
+        my.mother.mother.ethnicity = ethnicity;
+    } else {
+        my.ethnicity = ethnicity;
+        my.father.ethnicity = ethnicity;
+        my.mother.ethnicity = ethnicity;
+        my.father.father.ethnicity = ethnicity;
+        my.father.mother.ethnicity = ethnicity;
+        my.mother.father.ethnicity = ethnicity;
+        my.mother.mother.ethnicity = ethnicity;
+    }
+}
+
+function generateEthnicity(my) {
+    var rnd = Math.random();
+
+    my.ethnicity = "magic";
+    my.father.ethnicity = "magic";
+    my.mother.ethnicity = "magic";
+    my.father.father.ethnicity = "magic";
+    my.father.mother.ethnicity = "magic";
+    my.mother.father.ethnicity = "magic";
+    my.mother.mother.ethnicity = "magic";
+
+    if (my.blood === 'muggle-born') {
+        my.ethnicity = "english";
+        my.father.ethnicity = "english";
+        my.mother.ethnicity = "english";
+        my.father.father.ethnicity = "english";
+        my.father.mother.ethnicity = "english";
+        my.mother.father.ethnicity = "english";
+        my.mother.mother.ethnicity = "english";
+
+        if (rnd > 0.90) {
+            mixedFamily(my, 'irish');
+        }
+        return;
     }
 
-    if (my.blood  === 'muggle-born') {
-        names.self = [getName(my.gender.adjective, eth), getName('sur', eth), eth];
-        names.father = [getName('male', eth), names.self[1], eth];
-        names.mother = [getName('female', eth), getName('sur', eth), eth];
-        names.paternalGrandfather = [getName('male', eth), names.self[1], eth];
-        names.paternalGrandmother = [getName('female', eth), getName('sur', eth), eth];
-        names.maternalGrandfather = [getName('male', eth), names.mother[1], eth];
-        names.maternalGrandmother = [getName('female', eth), getName('sur', eth), eth];
-        return names;
-    }
+    if (my.blood === 'half-blood') {
+        if (my.father.blood === 'muggle' || my.father.blood === 'muggle-born') {
+            my.father.ethnicity = 'english';
+            my.father.father.ethnicity = 'english';
+            my.father.mother.ethnicity = 'english';
 
-    rnd = Math.random();
-    names.self = [getName(my.gender.adjective, "magic"), getName('sur', "magic"), "magic"];
-    names.father = [getName('male', "magic"), names.self[1], "magic"];
-    names.mother = [getName('female', "magic"), getName('sur', "magic"), "magic"];
-    names.paternalGrandfather = [getName('male', "magic"), names.father[1], "magic"];
-    names.paternalGrandmother = [getName('female', "magic"), getName('sur', "magic"), "magic"];
-    names.maternalGrandfather = [getName('male', "magic"), names.mother[1], "magic"];
-    names.maternalGrandmother = [getName('female', "magic"), getName('sur', "magic"), "magic"];
-
-    if (my.father.blood === 'pure-blood' && my.mother.blood === 'pure-blood') {
-        // Immigrant
-        if (rnd < 0.08) {
-            eth = "french";
-            if (rnd < 0.02) {
-                eth = "chinese";
-            }
-            if (rnd >= 0.04 && rnd < 0.02) {
-                eth = "indian";
-            }
-            if (rnd >= 0.06 && rnd < 0.04) {
-                eth = "russian";
-            }
-
-            rnd = Math.random();
-            if (rnd < 0.50) {
-                // both parents are immigrants
-                names.father = [getName('male', eth), getName('sur', eth), eth];
-                names.mother = [getName('female', eth), getName('sur', eth), eth];
-                names.self = [getName(my.gender.adjective, eth), names.father[1], eth];
-                names.paternalGrandfather = [getName('male', eth), names.father[1], eth];
-                names.paternalGrandmother = [getName('female', eth), getName('sur', eth), eth];
-                names.maternalGrandfather = [getName('male', eth), names.mother[1], eth];
-                names.maternalGrandmother = [getName('female', eth), getName('sur', eth), eth];
-            }
-            if (rnd >= 0.50 && rnd < 0.75) {
-                // father only
-                names.father = [getName('male', eth), getName('sur', eth), eth];
-                names.self[1] = names.father[1];
-                names.self[2] = eth;
-                names.paternalGrandfather = [getName('male', eth), names.father[1], eth];
-                names.paternalGrandmother = [getName('female', eth), getName('sur', eth), eth];
-            }
-            if (rnd >= 0.75) {
-                // mother only
-                names.mother = [getName('female', eth), getName('sur', eth), eth];
-                names.self[0] = getName(my.gender.adjective, eth);
-                names.self[2] = eth;
-                names.maternalGrandfather = [getName('male', eth), names.mother[1], eth];
-                names.maternalGrandmother = [getName('female', eth), getName('sur', eth), eth];
+            if (rnd > 0.90) {
+                my.father.ethnicity = 'irish';
+                my.father.father.ethnicity = 'irish';
+                my.father.mother.ethnicity = 'irish';
             }
         }
-        return names;
-    }
+        if (my.mother.blood === 'muggle' || my.mother.blood === 'muggle-born') {
+            my.mother.ethnicity = 'english';
+            my.mother.father.ethnicity = 'english';
+            my.mother.mother.ethnicity = 'english';
 
-    if (my.father.blood === 'muggle-born' || my.father.blood === 'muggle') {
-        names.father = [getName('male', eth), getName('sur', eth), eth];
-        names.paternalGrandfather = [getName('male', eth), names.father[1], eth];
-        names.paternalGrandmother = [getName('female', eth), getName('sur', eth), eth];
+            if (rnd > 0.80) {
+                my.mother.ethnicity = 'irish';
+                my.mother.father.ethnicity = 'irish';
+                my.mother.mother.ethnicity = 'irish';
+            }
+        }
+        return;
     }
-
     if (my.father.blood === 'half-blood') {
-        if (Math.random() > 0.5) {
-            names.father = [getName('male', "magic"), getName('sur', eth), "magic"];
-            names.paternalGrandfather = [getName('male', eth), names.father[1], eth];
-        } else {
-            names.father = [getName('male', eth), getName('sur', "magic"), "magic"];
-            names.paternalGrandmother = [getName('female', eth), getName('sur', eth), eth];
+        rnd = Math.random();
+        if (my.father.father.blood === 'muggle' || my.father.father.blood === 'muggle-born') {
+            my.father.father.ethnicity = 'english';
+            if (rnd > 0.90) {
+                my.father.father.ethnicity = 'irish';
+            }
         }
+        if (my.father.mother.blood === 'muggle' || my.father.mother.blood === 'muggle-born') {
+            my.father.mother.ethnicity = 'english';
+            if (rnd > 0.90) {
+                my.father.mother.ethnicity = 'irish';
+            }
+        }
+        return;
     }
-    if (my.mother.blood === 'muggle-born' || my.mother.blood === 'muggle') {
-        names.mother = [getName('female', eth), getName('sur', eth), eth];
-        names.maternalGrandfather = [getName('male', eth), names.mother[1], eth];
-        names.maternalGrandmother = [getName('female', eth), getName('sur', eth), eth];
-    }
-
     if (my.mother.blood === 'half-blood') {
-        if (Math.random() > 0.5) {
-            names.mother = [getName('female', "magic"), getName('sur', eth), "magic"];
-            names.maternalGrandfather = [getName('male', eth), names.father[1], eth];
-        } else {
-            names.mother = [getName('female', eth), getName('sur', "magic"), "magic"];
-            names.maternalGrandmother = [getName('female', eth), getName('sur', eth), eth];
+        rnd = Math.random();
+        if (my.mother.father.blood === 'muggle' || my.mother.father.blood === 'muggle-born') {
+            my.mother.father.ethnicity = 'english';
+            if (rnd > 0.90) {
+                my.mother.father.ethnicity = 'irish';
+            }
         }
+        if (my.mother.mother.blood === 'muggle' || my.mother.mother.blood === 'muggle-born') {
+            my.mother.mother.ethnicity = 'english';
+            if (rnd > 0.90) {
+                my.mother.mother.ethnicity = 'irish';
+            }
+        }
+        return;
     }
 
-    return names;
+    // Magic is the default
+    my.ethnicity = "magic";
+    my.father.ethnicity = "magic";
+    my.mother.ethnicity = "magic";
+    my.father.father.ethnicity = "magic";
+    my.father.mother.ethnicity = "magic";
+    my.mother.father.ethnicity = "magic";
+    my.mother.mother.ethnicity = "magic";
+
+    if (rnd < 0.02) {
+        mixedFamily(my, 'french');
+    } else if (rnd < 0.04) {
+        mixedFamily(my, 'chinese');
+    } else if (rnd < 0.06) {
+        mixedFamily(my, 'indian');
+    } else if (rnd < 0.08) {
+        mixedFamily(my, 'russian');
+    }
+}
+
+function generateNames(my) {
+    my.father.father.givenName = getName('male', my.father.father.ethnicity);
+    my.father.father.surname = getName('sur', my.father.father.ethnicity);
+
+    my.father.mother.givenName = getName('female', my.father.mother.ethnicity);
+    my.father.mother.surname = getName('sur', my.father.mother.ethnicity);
+
+    my.mother.father.givenName = getName('male', my.mother.father.ethnicity);
+    my.mother.father.surname = getName('sur', my.mother.father.ethnicity);
+
+    my.mother.mother.givenName = getName('female', my.mother.mother.ethnicity);
+    my.mother.mother.surname = getName('sur', my.mother.mother.ethnicity);
+
+    my.father.givenName = getName('male', my.father.mother.ethnicity);
+    my.father.surname = my.father.father.surname;
+
+    my.mother.givenName = getName('female', my.mother.mother.ethnicity);
+    my.mother.surname = my.mother.father.surname;
+
+    my.givenName = getName(my.gender.adjective, my.mother.ethnicity);
+    my.surname = my.father.surname;
 }
 
 function generateInheritance(blood) {
@@ -393,18 +495,18 @@ function generateInheritance(blood) {
 }
 
 function generateParentInfo() {
-    /*var my = characterData();
-    if (localStorage.getItem('bloodStatus') !== 'muggle-born') {
-        my.father.social_class = getClass(my.father.blood);
-        my.mother.social_class = getClass(my.mother.blood);
-        my.father.inheritance = generateInheritance(my.father.blood);
-        my.mother.inheritance = generateInheritance(my.mother.blood);
-        my.father.career = generateCareer(my.father.social_class, my.father.inheritance, 'Father', my.mother.social_class, my.mother.inheritance);
-        my.mother.career = generateCareer(my.mother.social_class, my.mother.inheritance, 'Mother', my.father.social_class, my.father.inheritance);
-    } else {
-        my.father.social_class = getClass('muggle');
-        my.mother.social_class = getClass('muggle');
-    }*/
+    // var my = characterData();
+    // if (localStorage.getItem('bloodStatus') !== 'muggle-born') {
+    //     my.father.social_class = getClass(my.father.blood);
+    //     my.mother.social_class = getClass(my.mother.blood);
+    //     my.father.inheritance = generateInheritance(my.father.blood);
+    //     my.mother.inheritance = generateInheritance(my.mother.blood);
+    //     my.father.career = generateCareer(my.father.social_class, my.father.inheritance, 'Father', my.mother.social_class, my.mother.inheritance);
+    //     my.mother.career = generateCareer(my.mother.social_class, my.mother.inheritance, 'Mother', my.father.social_class, my.father.inheritance);
+    // } else {
+    //     my.father.social_class = getClass('muggle');
+    //     my.mother.social_class = getClass('muggle');
+    // }
 }
 
 function allowance(familyWealth) {
@@ -432,22 +534,19 @@ function allowance(familyWealth) {
     localStorage.setItem('monthlyAllowance', monthlyAllowance);
 }
 
-function calculateFamilyWealth() {
-    var familyWealth = 0, my = characterData();
+function calculateFamilyWealth(character) {
+    var familyWealth = 0;
 
-    if (my.father.career && !my.father.state) {
-        familyWealth = monthyIncomeGalleons[my.father.socialClass];
+    if (character.father.career && !character.father.state) {
+        familyWealth = monthyIncomeGalleons[character.father.socialClass];
     }
-    if (my.mother.career && !my.mother.state) {
-        familyWealth = familyWealth + monthyIncomeGalleons[my.mother.socialClass];
+    if (character.mother.career && !character.mother.state) {
+        familyWealth = familyWealth + monthyIncomeGalleons[character.mother.socialClass];
     }
-    if (localStorage.getItem('bloodStatus') === 'muggle-born') {
-        familyWealth = (monthyIncomeGalleons[my.father.socialClass] + monthyIncomeGalleons[my.mother.socialClass]) / 2;
+    if (character.blood === 'muggle-born') {
+        familyWealth = (monthyIncomeGalleons[character.father.socialClass] + monthyIncomeGalleons[character.mother.socialClass]) / 2;
     }
-    familyWealth = familyWealth + +my.father.inheritance + +my.mother.inheritance;
-
-    localStorage.setItem('familyWealth', familyWealth);
-    allowance(familyWealth);
+    return familyWealth + parseInt(character.father.inheritance, 10) + parseInt(character.mother.inheritance, 10);
 }
 
 function characterData() {
@@ -459,13 +558,8 @@ function characterData() {
 }
 
 function createCharacter() {
-    var character = {}, gender = ["male", "female"].random(), blood, names, bDate, cityData;//, sunSigns, monthNames;
+    var character = {}, gender = ["male", "female"].random(), blood, names, bDate, cityData, rand;
     localStorage.clear();
-
-    character.home = {};
-    cityData = data.cities.wizard.random();
-    character.home.city = Object.keys(cityData)[0];
-    character.home.incity = cityData[Object.keys(cityData)[0]].areas.random();
 
     character.gender = {
         adjective: gender,
@@ -566,44 +660,59 @@ function createCharacter() {
         character.age = 10;
     }
 
-    birthOrder();
-    character.siblings = siblings();
-    // localStorage.setItem('numberOfSiblings', numberOfSiblings);
-    // localStorage.setItem('orderInSiblings', Math.ceil(Math.random() * (numberOfSiblings + 1)));
-    character.attr = generateAttributes();
-    names = generateNames(character);
-    character.givenName = names.self[0];
-    character.surname = names.self[1];
-    character.ethnicity = names.self[2];
+    character.attr = generateAttributes(character.zodiac);
+    generateEthnicity(character);
+    generateNames(character);
 
-    character.father.givenName = names.father[0];
-    character.father.surname = names.father[1];
-    character.father.ethnicity = names.father[2];
-    character.mother.givenName = names.mother[0];
-    character.mother.surname = names.mother[1];
-    character.mother.ethnicity = names.mother[2];
+    character.siblings = createSiblings(character.birthDayOfYear, character.mother.ethnicity);
 
-    character.father.father.givenName = names.paternalGrandfather[0];
-    character.father.father.surname = names.paternalGrandfather[1];
-    character.father.father.ethnicity = names.paternalGrandfather[2];
-    character.father.mother.givenName = names.paternalGrandmother[0];
-    character.father.mother.surname = names.paternalGrandmother[1];
-    character.father.mother.ethnicity = names.paternalGrandmother[2];
-
-    character.mother.father.givenName = names.maternalGrandfather[0];
-    character.mother.father.surname = names.maternalGrandfather[1];
-    character.mother.father.ethnicity = names.maternalGrandfather[2];
-    character.mother.mother.givenName = names.maternalGrandmother[0];
-    character.mother.mother.surname = names.maternalGrandmother[1];
-    character.mother.mother.ethnicity = names.maternalGrandmother[2];
+    // generateParentInfo();
+    if (character.blood !== 'muggle-born') {
+        character.father.socialClass = getClass(character.father.blood);
+        character.mother.socialClass = getClass(character.mother.blood);
+        character.father.inheritance = generateInheritance(character.father.blood);
+        character.mother.inheritance = generateInheritance(character.mother.blood);
+        character.father.state = findState('Father');
+        if (!character.father.state) {
+            character.father.career = generateCareer(character.father.socialClass, character.father.inheritance, 'Father', character.mother.socialClass, character.mother.inheritance);
+        }
+        if (!character.father.state) {
+            character.mother.state = findState('Mother');
+        }
+        if (!character.mother.state) {
+            character.mother.career = generateCareer(character.mother.socialClass, character.mother.inheritance, 'Mother', character.father.socialClass, character.father.inheritance);
+        }
+    } else {
+        character.father.socialClass = getClass('muggle');
+        character.mother.socialClass = getClass('muggle');
+    }
 
     // after we are done:
-    localStorage.setItem("character", JSON.stringify(character));
+    character.householdIncome = calculateFamilyWealth(character);
+    character.socialClass = socialClass(character.householdIncome);
 
-    generateParentInfo();
-    calculateFamilyWealth();
+    character.home = {};
+    rand = Math.random();
+    if (character.ethnicity === "english") {
+        cityData = data.cities.english.random();
+    } else if (character.ethnicity === "irish") {
+        cityData = data.cities.irish.random();
+    } else {
+        if (rand > 0.60) {
+            cityData = data.cities.wizard.random();
+        } else if (rand > 0.55) {
+            cityData = data.cities.irish.random();
+        } else {
+            cityData = data.cities.english.random();
+        }
+    }
+    character.home.city = Object.keys(cityData)[0];
+    character.home.incity = cityData[Object.keys(cityData)[0]].areas.random();
+
+    localStorage.setItem("character", JSON.stringify(character));
+    // calculateFamilyWealth();
     // removeUnneededJob();
-    localStorage.setItem('parents', JSON.stringify(parents));
+    // localStorage.setItem('parents', JSON.stringify(parents));
 
     /*displayPersonal();
     displayAtt(attr);

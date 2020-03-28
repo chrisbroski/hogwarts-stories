@@ -13,7 +13,9 @@ console.log(data.careers["middle class"].length  + " middle class careers");
 console.log(data.careers.average.length  + " average careers");
 console.log(data.careers.struggling.length  + " struggling careers");
 console.log(data.careers.poor.length  + " poor careers");
-console.log(data.cities.wizard.length  + " cities");
+console.log(data.cities.wizard.length  + " magic cities");
+console.log(data.cities.english.length  + " British cities");
+console.log(data.cities.irish.length  + " Irish cities");
 
 data.flavors = yaml.safeLoad(fs.readFileSync('data/flavors.yml', 'utf8')).flavors;
 console.log(data.flavors.length  + " flavors");

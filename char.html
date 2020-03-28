@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<title>Character Creator</title>
+<link href="inc/main.css" rel="stylesheet">
+<style>
+/* For character test only hide story controls */
+#asideChapters, aside fieldset, h3, h5, #menuInventory {display: none; }
+#attrs h5 {display: block; }
+</style>
+
+<header>
+    <div><div></div><div></div><div></div></div>
+    <h2>
+        <span id="titleA">Hogwarts</span>
+        <span class="star">✶</span>
+        <span id="titleB">Student Stories</span>
+    </h2>
+</header>
+
+<article>
+
+<aside></aside>
+
+<section>
+
+<header>
+    <h4>Random Hogwarts First-Year</h4>
+</header>
+<main>
+<h3>TODO</h3>
+<ul>
+<li>Siblings ages
+<li>Display mother and father state properly
+<li>Kill off some grandparents'
+<li>Death causes
+<li>Household may include grandparents
+<li>More careers (the elevator at the beginning of OotP is a great source of ministry positions)
+</ul>
+<pre id="data"></pre>
+</main>
+<fieldset></fieldset>
+
+</section>
+
+</article>
+
+<script src="inc/new.js"></script>
+<script src="inc/main.js"></script>
+<script>
+var data, xhr = new XMLHttpRequest();
+xhr.open("GET", "data/data.json?" + Math.random());
+xhr.onload = function (e) {
+    data = JSON.parse(xhr.response);
+
+    //if (!characterData()) {
+    createCharacter();
+    //}
+
+    init(displayCharacter);
+};
+xhr.send();
+
+function displayCharacter() {
+    var character = JSON.parse(localStorage.getItem("character"));
+    var orderInSiblings = +localStorage.getItem('orderInSiblings');
+
+    var description = document.createElement("p");
+    var birthOrder;
+    var numberOfChildren = +localStorage.getItem('numberOfSiblings') + 1;
+    if (numberOfChildren === 1) {
+        birthOrder = 'an only child';
+    } else {
+        if (numberOfChildren === orderInSiblings) {
+            birthOrder = `the youngest of ${numberOfChildren} children`;
+        } else if (orderInSiblings === 1) {
+            birthOrder = `the oldest of ${numberOfChildren} children`;
+        } else {
+            birthOrder = `the ${ordinal(orderInSiblings)} of ${numberOfChildren} children`;
+        }
+    }
+
+    var socialClassDescription;
+    if (character.socialClass === 'average') {
+        socialClassDescription = '';
+    } else {
+        socialClassDescription = ` to a ${character.socialClass} family`;
+    }
+
+    description.textContent = `${character.givenName} ${character.surname} is a ${character.age}-year-old ${character.blood} ${character.gender.magic} born ${birthOrder} on ${character.birthMonth} ${ordinal(character.birthDate)} (${character.sunSign})${socialClassDescription}.`;
+    // ${character.home.incity} ${character.home.city}.`;
+    document.querySelector("article section header").appendChild(description);
+
+    document.querySelector("#data").textContent = JSON.stringify(character, null, "    ");
+
+    var parent = document.createElement("p");
+    var state = character.father.state;
+    if (!state) {
+        state = 'alive';
+    }
+    var fatherCareer = '';
+    var motherCareer = '';
+    if (character.father.career) {
+        fatherCareer = `, ${aArticle(character.father.career)}`;
+    }
+    if (character.mother.career) {
+        motherCareer = ` ${aArticle(character.mother.career)}`;
+    }
+
+    parent.textContent = `${capitalize(character.gender.pronoun.first)} lives ${character.home.incity} ${character.home.city} with ${character.gender.pronoun.possessive} father, ${character.father.givenName} ${character.father.surname}${fatherCareer} and mother ${character.mother.givenName} (née ${character.mother.surname})${motherCareer}.`;
+
+    document.querySelector("article section header").appendChild(parent);
+}
+</script>

@@ -22,12 +22,80 @@ cities:
         - near
     - Surrey:
         areas:
-        - in
-        - in a suburb of
         - near
+    - Birmingham:
+        areas:
+        - near
+        - outside of
+    - Leeds:
+        areas:
+        - near
+        - outside of
+    - Sheffield:
+        areas:
+        - near
+        - outside of
+    - Bradford:
+        areas:
+        - near
+        - outside of
+    - Manchester:
+        areas:
+        - near
+        - outside of
+    - Liverpool:
+        areas:
+        - near
+        - outside of
+    - Bristol:
+        areas:
+        - near
+        - outside of
+    - Newcastle:
+        areas:
+        - near
+        - outside of
+    - Sunderland:
+        areas:
+        - near
+        - outside of
+    - Wolverhampton:
+        areas:
+        - near
+        - outside of
+    - Glasgow:
+        areas:
+        - in
+        - near
+        - outside of
+    - Leicester:
+        areas:
+        - near
+        - outside of
     irish:
     - Dublin:
         areas:
         - in
         - in downtown
+        - near
+    - Belfast:
+        areas:
+        - in
+        - in downtown
+        - near
+    - Cork:
+        areas:
+        - in
+        - near
+    - Derry:
+        areas:
+        - in
+        - near
+    - Limerick:
+        areas:
+        - in
+        - near
+    - Galway:
+        areas:
+        - in
         - near

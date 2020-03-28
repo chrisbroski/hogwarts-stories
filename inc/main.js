@@ -16,6 +16,16 @@ function countHash(txt, symb) {
     return (txt.match(new RegExp(symb, "g")) || []).length;
 }
 
+function aArticle(words) {
+    if (!words) {
+        return "";
+    }
+    if (['a', 'e', 'i', 'o', 'u', 'h'].indexOf(words.slice(0, 1)) > -1) {
+        return `an ${words}`;
+    }
+    return `a ${words}`;
+}
+
 function blockArray(mdText) {
     var aMd;
     mdText = mdText.replace(/\r\n/g, "\n"); // DOS to Unix
@@ -265,7 +275,7 @@ function aside() {
     });
 }
 
-function init() {
+function init(callback) {
     var xhr = new XMLHttpRequest(),
         menu = document.querySelector("aside");
 
@@ -274,7 +284,11 @@ function init() {
         menu.innerHTML = xhr.response;
         events();
         aside();
-        loadChapter();
+        if (!callback) {
+            loadChapter();
+        } else {
+            callback();
+        }
     };
     xhr.send();
 }
